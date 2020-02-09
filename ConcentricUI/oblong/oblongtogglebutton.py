@@ -2,8 +2,8 @@
 
 all__ = ('OblongToggleButton',)
 
-from concentricui.behaviours.concentrictogglebutton import ConcentricToggleButton
-from concentricui.oblong.concentricoblongs import ConcentricOblongs
+from ConcentricUI.behaviours.concentrictogglebutton import ConcentricToggleButton
+from ConcentricUI.oblong.concentricoblongs import ConcentricOblongs
 
 
 class OblongToggleButton(ConcentricOblongs, ConcentricToggleButton):

@@ -7,9 +7,9 @@ from kivy.properties import ObjectProperty
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.modalview import ModalView
 
-from concentricui.roundedrectangle.concentricroundedrectangles import ConcentricRoundedRectangles
-from concentricui.widgets.textbutton import TextButton
-from concentricui.widgets.topbar import TopBarShape
+from ConcentricUI.roundedrectangle.concentricroundedrectangles import ConcentricRoundedRectangles
+from ConcentricUI.widgets.textbutton import TextButton
+from ConcentricUI.widgets.topbar import TopBarShape
 
 
 # <NiceConcentricPopup>:

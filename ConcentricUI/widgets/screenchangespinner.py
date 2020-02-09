@@ -6,7 +6,7 @@ from kivy.app import App
 from kivy.clock import Clock
 from kivy.properties import ListProperty
 
-from concentricui.oblong.oblongspinner import OblongSpinner
+from ConcentricUI.oblong.oblongspinner import OblongSpinner
 
 
 class ScreenChangeSpinner(OblongSpinner):

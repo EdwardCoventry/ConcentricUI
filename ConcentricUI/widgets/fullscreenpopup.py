@@ -2,7 +2,7 @@
 
 all__ = ('FullScreenPopup',)
 
-from concentricui.widgets.popup import ConcentricPopup
+from ConcentricUI.widgets.popup import ConcentricPopup
 
 
 class FullScreenPopup(ConcentricPopup):

@@ -3,7 +3,7 @@ from math import sqrt
 from kivy.graphics import InstructionGroup, VertexInstruction, Rectangle
 from kivy.properties import AliasProperty
 
-from concentricui.circle.circle import Circle
+from ConcentricUI.circle.circle import Circle
 
 """ I have removed all of my AliasProperties as it seems that the base class Ellipse cannot use the event dispatcher """
 

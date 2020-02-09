@@ -2,8 +2,8 @@
 
 all__ = ('ConcentricShapes',)
 
-from concentricui.behaviours.concentricshapes import ConcentricShapes
-from concentricui.circle.circle import Circle
+from ConcentricUI.behaviours.concentricshapes import ConcentricShapes
+from ConcentricUI.circle.circle import Circle
 
 
 class ConcentricCircles(ConcentricShapes):

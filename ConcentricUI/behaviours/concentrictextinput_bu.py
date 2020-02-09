@@ -7,8 +7,8 @@ from kivy.graphics import Color
 from kivy.properties import ObjectProperty, VariableListProperty, BooleanProperty, AliasProperty
 from kivy.uix.textinput import TextInput
 
-from concentricui.behaviours.concentricfontscaling import ConcentricFontScaling
-from concentricui.behaviours.concentricshapes import ConcentricShapes
+from ConcentricUI.behaviours.concentricfontscaling import ConcentricFontScaling
+from ConcentricUI.behaviours.concentricshapes import ConcentricShapes
 
 Cache_get = Cache.get
 Cache_append = Cache.append

@@ -4,7 +4,7 @@ all__ = ('RoundedRectangleDropdown',)
 
 from kivy.uix.dropdown import DropDown
 
-from concentricui.roundedrectangle.concentricroundedrectangles import ConcentricRoundedRectangles
+from ConcentricUI.roundedrectangle.concentricroundedrectangles import ConcentricRoundedRectangles
 
 
 class RoundedRectangleDropdown(ConcentricRoundedRectangles, DropDown):

@@ -9,8 +9,8 @@ from kivy.graphics import Color
 from kivy.properties import ObjectProperty, ListProperty, VariableListProperty, BooleanProperty, NumericProperty
 from kivy.uix.textinput import TextInputCutCopyPaste, TextInput
 
-from concentricui.behaviours.concentricshapes import ConcentricShapes
-from concentricui.roundedrectangle.roundedrectangle import RoundedRec as RoundedRectangle
+from ConcentricUI.behaviours.concentricshapes import ConcentricShapes
+from ConcentricUI.roundedrectangle.roundedrectangle import RoundedRec as RoundedRectangle
 
 
 class RoundedRectangleTextInputCutCopyPaste(TextInputCutCopyPaste):
@@ -18,8 +18,8 @@ class RoundedRectangleTextInputCutCopyPaste(TextInputCutCopyPaste):
         super(RoundedRectangleTextInputCutCopyPaste, self).__init__(**kwargs)
 
 
-from concentricui.oblong.concentricoblongs import ConcentricOblongs
-from concentricui.oblong.oblong import Oblong
+from ConcentricUI.oblong.concentricoblongs import ConcentricOblongs
+from ConcentricUI.oblong.oblong import Oblong
 
 
 class OblongCursor(ConcentricOblongs):

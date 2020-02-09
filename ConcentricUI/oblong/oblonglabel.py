@@ -2,8 +2,8 @@
 
 all__ = ('OblongLabel',)
 
-from concentricui.behaviours.concentriclabel import ConcentricLabel
-from concentricui.oblong.concentricoblongs import ConcentricOblongs
+from ConcentricUI.behaviours.concentriclabel import ConcentricLabel
+from ConcentricUI.oblong.concentricoblongs import ConcentricOblongs
 
 
 class OblongLabel(ConcentricOblongs, ConcentricLabel):

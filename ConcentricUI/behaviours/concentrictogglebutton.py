@@ -4,7 +4,7 @@ all__ = ('ConcentricToggleButton',)
 
 from kivy.uix.togglebutton import ToggleButtonBehavior
 
-from concentricui.behaviours.concentricbutton import ConcentricButton
+from ConcentricUI.behaviours.concentricbutton import ConcentricButton
 
 
 class ConcentricToggleButton(ConcentricButton, ToggleButtonBehavior):

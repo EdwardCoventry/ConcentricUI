@@ -2,8 +2,8 @@
 
 all__ = ('CircleToggleButton',)
 
-from concentricui.behaviours.concentrictogglebutton import ConcentricToggleButton
-from concentricui.circle.concentriccircles import ConcentricCircles
+from ConcentricUI.behaviours.concentrictogglebutton import ConcentricToggleButton
+from ConcentricUI.circle.concentriccircles import ConcentricCircles
 
 
 class CircleToggleButton(ConcentricCircles, ConcentricToggleButton):

@@ -16,7 +16,7 @@ from kivy.graphics import Color
 from kivy.properties import BooleanProperty, NumericProperty, ObjectProperty, ListProperty, ReferenceListProperty, \
     AliasProperty, OptionProperty, StringProperty
 
-from concentricui.colourscheme.colourwidget import ColourWidget
+from ConcentricUI.colourscheme.colourwidget import ColourWidget
 
 
 class ConcentricShapes(ColourWidget):

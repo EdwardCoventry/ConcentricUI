@@ -5,9 +5,9 @@ all__ = ('DoubleCircleSlider',)
 from kivy.clock import Clock
 from kivy.properties import BooleanProperty, NumericProperty, ObjectProperty, ReferenceListProperty
 
-from concentricui.behaviours.concentricshapes import ConcentricShapes
-from concentricui.circle.circleslider import CircleSlider
-from concentricui.oblong.concentricoblongs import ConcentricOblongs
+from ConcentricUI.behaviours.concentricshapes import ConcentricShapes
+from ConcentricUI.circle.circleslider import CircleSlider
+from ConcentricUI.oblong.concentricoblongs import ConcentricOblongs
 
 
 class DoubleCircleSlider(ConcentricShapes):

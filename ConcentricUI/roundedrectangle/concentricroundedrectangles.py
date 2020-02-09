@@ -2,8 +2,8 @@
 
 all__ = ('ConcentricRoundedRectangles',)
 
-from concentricui.behaviours.concentricshapes import ConcentricShapes
-from concentricui.roundedrectangle.roundedrectangle import RoundedRec
+from ConcentricUI.behaviours.concentricshapes import ConcentricShapes
+from ConcentricUI.roundedrectangle.roundedrectangle import RoundedRec
 
 
 class ConcentricRoundedRectangles(ConcentricShapes):

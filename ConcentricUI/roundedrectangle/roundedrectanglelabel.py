@@ -2,8 +2,8 @@
 
 all__ = ('RoundedRectangleLabel',)
 
-from concentricui.behaviours.concentriclabel import ConcentricLabel
-from concentricui.roundedrectangle.concentricroundedrectangles import ConcentricRoundedRectangles
+from ConcentricUI.behaviours.concentriclabel import ConcentricLabel
+from ConcentricUI.roundedrectangle.concentricroundedrectangles import ConcentricRoundedRectangles
 
 
 class RoundedRectangleLabel(ConcentricRoundedRectangles, ConcentricLabel):

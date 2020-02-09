@@ -2,8 +2,8 @@
 
 all__ = ('CircleTextInput',)
 
-from concentricui.behaviours.concentrictextinput import ConcentricTextInput
-from concentricui.circle.concentriccircles import ConcentricCircles
+from ConcentricUI.behaviours.concentrictextinput import ConcentricTextInput
+from ConcentricUI.circle.concentriccircles import ConcentricCircles
 
 
 class CircleTextInput(ConcentricTextInput, ConcentricCircles):

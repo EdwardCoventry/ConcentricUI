@@ -1,6 +1,6 @@
 from kivy.clock import Clock
 
-from concentricui.oblong.oblongtextinput import OblongTextInput
+from ConcentricUI.oblong.oblongtextinput import OblongTextInput
 
 from kivy.uix.recycleview import RecycleView
 from kivy.uix.recycleboxlayout import RecycleBoxLayout

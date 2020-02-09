@@ -6,8 +6,8 @@ from kivy.graphics import Color, Rectangle
 from kivy.properties import NumericProperty, ReferenceListProperty
 from kivy.uix.screenmanager import Screen
 
-from concentricui.colourscheme.colourwidget import ColourWidget
-from concentricui.widgets.topbar import TopBar
+from ConcentricUI.colourscheme.colourwidget import ColourWidget
+from ConcentricUI.widgets.topbar import TopBar
 
 
 class ColourScreen(Screen, ColourWidget):

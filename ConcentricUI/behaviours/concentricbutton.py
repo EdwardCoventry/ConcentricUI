@@ -6,7 +6,7 @@ all__ = ('ConcentricButton',)
 
 from kivy.uix.button import ButtonBehavior
 
-from concentricui.behaviours.concentriclabel import ConcentricLabel
+from ConcentricUI.behaviours.concentriclabel import ConcentricLabel
 
 
 class ConcentricButton(ButtonBehavior, ConcentricLabel):

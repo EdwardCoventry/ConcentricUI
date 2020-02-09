@@ -2,8 +2,8 @@
 
 all__ = ('OblongTextInput',)
 
-from concentricui.behaviours.concentrictextinput import ConcentricTextInput
-from concentricui.oblong.concentricoblongs import ConcentricOblongs
+from ConcentricUI.behaviours.concentrictextinput import ConcentricTextInput
+from ConcentricUI.oblong.concentricoblongs import ConcentricOblongs
 
 
 class OblongTextInput(ConcentricOblongs, ConcentricTextInput):

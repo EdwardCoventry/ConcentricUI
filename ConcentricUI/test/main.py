@@ -1,9 +1,9 @@
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 
-from concentricui.circle.circleslider import CircleSlider
-from concentricui.circle.doublecircleslider import DoubleCircleSlider
-from concentricui.oblong.oblongtogglebutton import OblongToggleButton
+from ConcentricUI.circle.circleslider import CircleSlider
+from ConcentricUI.circle.doublecircleslider import DoubleCircleSlider
+from ConcentricUI.oblong.oblongtogglebutton import OblongToggleButton
 
 
 class TestWidget(OblongToggleButton):
@@ -32,7 +32,7 @@ class TestWidget(OblongToggleButton):
 
 from kivy.core.window import Window
 
-from concentricui.widgets.screenchangespinner import ScreenChangeSpinner
+from ConcentricUI.widgets.screenchangespinner import ScreenChangeSpinner
 
 from kivy.uix.screenmanager import ScreenManager
 
@@ -50,9 +50,9 @@ from kivy.uix.screenmanager import ScreenManager
 #         #w2 = OblongTextInput(shape_size_hint_list=[0.7, 0.8, 0.9], master_colour=(1,0,1,0.1))
 #         #w2 = OblongSpinner(total_height=Window.height, size_hint_y=0.2,option_cls_kwargs={'opening_pin':circle_slider, 'closing_pin':True, 'shape_size_hint_list':[0.8, 0.7], 'master_colour':(1,1,0,1)}, values=['1aaaaaaaaaaaaaabbb','2aaaaaaaaaaaaaabbb','3aaaaaaaaaaaaaabbb','4aaaaaaaaaaaaaabbb','5aaaaaaaaaaaaaabbb'], text_colour=(0,1,1,1),opening_pin='True',closing_pin=circle_slider, shape_size_hint_list=[0.7, 1], master_colour=(1,0,1,1))
 
-from concentricui.colourscheme.colourscreen import ColourScreen
+from ConcentricUI.colourscheme.colourscreen import ColourScreen
 
-from concentricui.circle.circletogglebutton import CircleToggleButton
+from ConcentricUI.circle.circletogglebutton import CircleToggleButton
 
 
 # Declare both screens
@@ -98,7 +98,7 @@ sm = ScreenManager()
 sm.add_widget(MenuScreen(name='Menu'))
 sm.add_widget(SettingsScreen(name='Settings'))
 
-from concentricui.colourscheme.colourwidget import ColourProperties
+from ConcentricUI.colourscheme.colourwidget import ColourProperties
 
 
 class TestApp(App, ColourProperties):

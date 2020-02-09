@@ -7,8 +7,8 @@ from kivy.factory import Factory
 from kivy.properties import NumericProperty, DictProperty, ObjectProperty
 from kivy.uix.spinner import Spinner
 
-from concentricui.oblong.concentricoblongs import ConcentricOblongs
-from concentricui.oblong.oblongbutton import OblongButton
+from ConcentricUI.oblong.concentricoblongs import ConcentricOblongs
+from ConcentricUI.oblong.oblongbutton import OblongButton
 
 
 class OblongSpinnerButton(OblongButton):

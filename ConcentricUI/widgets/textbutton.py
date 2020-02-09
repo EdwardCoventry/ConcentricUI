@@ -2,7 +2,7 @@ from kivy.properties import NumericProperty
 from kivy.uix.button import Button
 from kivy.uix.button import Label
 
-from concentricui.colourscheme.colourwidget import ColourWidget
+from ConcentricUI.colourscheme.colourwidget import ColourWidget
 
 
 class Text(ColourWidget, Label):

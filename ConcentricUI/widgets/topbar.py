@@ -4,10 +4,10 @@ from kivy.app import App
 from kivy.graphics import Color, Rectangle
 from kivy.uix.boxlayout import BoxLayout
 
-from concentricui.appcontroll.appcontroll import minimise_app, close_app
-from concentricui.oblong.concentricoblongs import ConcentricOblongs
-from concentricui.widgets.screenchangespinner import ScreenChangeSpinner
-from concentricui.widgets.textbutton import TextButton
+from ConcentricUI.appcontroll.appcontroll import minimise_app, close_app
+from ConcentricUI.oblong.concentricoblongs import ConcentricOblongs
+from ConcentricUI.widgets.screenchangespinner import ScreenChangeSpinner
+from ConcentricUI.widgets.textbutton import TextButton
 
 
 class TopBarShape(ConcentricOblongs):

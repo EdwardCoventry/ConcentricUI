@@ -1,7 +1,7 @@
 from kivy.properties import BooleanProperty, NumericProperty, ReferenceListProperty, StringProperty
 from kivy.uix.label import Label
 
-from concentricui.behaviours.concentricfontscaling import ConcentricFontScaling
+from ConcentricUI.behaviours.concentricfontscaling import ConcentricFontScaling
 
 
 class ConcentricLabel(Label, ConcentricFontScaling):

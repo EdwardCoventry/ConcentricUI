@@ -2,8 +2,8 @@
 
 all__ = ('RoundedRectangleTextInput',)
 
-from concentricui.behaviours.concentrictextinput import ConcentricTextInput
-from concentricui.roundedrectangle.concentricroundedrectangles import ConcentricRoundedRectangles
+from ConcentricUI.behaviours.concentrictextinput import ConcentricTextInput
+from ConcentricUI.roundedrectangle.concentricroundedrectangles import ConcentricRoundedRectangles
 
 
 class RoundedRectangleTextInput(ConcentricTextInput, ConcentricRoundedRectangles):

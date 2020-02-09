@@ -23,12 +23,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="16" />
+          <entry key="py" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="16" />
+          <entry key="Python" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -51,7 +51,7 @@
         <entry file="file://$PROJECT_DIR$/ConcentricUI/circle/concentriccircles.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="292">
-              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
@@ -60,7 +60,7 @@
         <entry file="file://$PROJECT_DIR$/ConcentricUI/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -78,10 +78,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ConcentricUI/colourscheme/setup.py">
+        <entry file="file://$PROJECT_DIR$/setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="18" lean-forward="true" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+            <state relative-caret-position="221">
+              <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -166,7 +166,11 @@
       <find>padding_y</find>
       <find>show_</find>
       <find>top_bar_</find>
+      <find>from concentricui.</find>
     </findStrings>
+    <replaceStrings>
+      <replace>from ConcentricUI.</replace>
+    </replaceStrings>
     <dirStrings>
       <dir>C:\Users\Eddco\code\concentricui\build\bdist.win-amd64</dir>
     </dirStrings>
@@ -186,6 +190,7 @@
         <option value="$PROJECT_DIR$/concentricui/colourscheme/setup.py" />
         <option value="$PROJECT_DIR$/ConcentricUI/__init__.py" />
         <option value="$PROJECT_DIR$/ConcentricUI/colourscheme/setup.py" />
+        <option value="$PROJECT_DIR$/setup.py" />
       </list>
     </option>
   </component>
@@ -212,6 +217,12 @@
               <item name="concentricui" type="b2602c69:ProjectViewProjectNode" />
               <item name="concentricui" type="462c0819:PsiDirectoryNode" />
               <item name="ConcentricUI" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="concentricui" type="b2602c69:ProjectViewProjectNode" />
+              <item name="concentricui" type="462c0819:PsiDirectoryNode" />
+              <item name="ConcentricUI" type="462c0819:PsiDirectoryNode" />
+              <item name="colourscheme" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -450,20 +461,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="23" lean-forward="true" selection-end-line="22" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ConcentricUI/colourscheme/colourscreen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/restore/Users/Eddco/code/concentricui/concentricui/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -477,14 +474,14 @@
     <entry file="file://$PROJECT_DIR$/ConcentricUI/circle/concentriccircles.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="292">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ConcentricUI/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -493,8 +490,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ConcentricUI/colourscheme/setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="18" lean-forward="true" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+        <state relative-caret-position="374">
+          <caret line="22" column="1" lean-forward="true" selection-end-line="22" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ConcentricUI/colourscheme/colourscreen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
         </state>
       </provider>
     </entry>

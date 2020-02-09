@@ -8,9 +8,9 @@ from kivy.clock import Clock
 from kivy.properties import NumericProperty, BooleanProperty, ObjectProperty, AliasProperty
 from kivy.uix.slider import Slider
 
-from concentricui.circle.circlelabel import CircleLabel
-from concentricui.circle.concentriccircles import ConcentricCircles
-from concentricui.oblong.concentricoblongs import ConcentricOblongs
+from ConcentricUI.circle.circlelabel import CircleLabel
+from ConcentricUI.circle.concentriccircles import ConcentricCircles
+from ConcentricUI.oblong.concentricoblongs import ConcentricOblongs
 
 
 class CircleSlider(Slider, ConcentricCircles):

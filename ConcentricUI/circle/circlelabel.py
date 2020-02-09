@@ -2,8 +2,8 @@
 
 all__ = ('CircleLabel',)
 
-from concentricui.behaviours.concentriclabel import ConcentricLabel
-from concentricui.circle.concentriccircles import ConcentricCircles
+from ConcentricUI.behaviours.concentriclabel import ConcentricLabel
+from ConcentricUI.circle.concentriccircles import ConcentricCircles
 
 class CircleLabel(ConcentricCircles, ConcentricLabel):
 

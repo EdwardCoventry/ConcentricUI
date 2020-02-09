@@ -2,8 +2,8 @@
 
 all__ = ('RoundedRectangleButton',)
 
-from concentricui.behaviours.concentricbutton import ConcentricButton
-from concentricui.roundedrectangle.concentricroundedrectangles import ConcentricRoundedRectangles
+from ConcentricUI.behaviours.concentricbutton import ConcentricButton
+from ConcentricUI.roundedrectangle.concentricroundedrectangles import ConcentricRoundedRectangles
 
 
 class RoundedRectangleButton(ConcentricRoundedRectangles, ConcentricButton):

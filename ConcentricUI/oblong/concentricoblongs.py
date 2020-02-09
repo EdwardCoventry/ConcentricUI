@@ -6,9 +6,9 @@ from kivy.clock import Clock
 from kivy.properties import ObjectProperty, StringProperty, AliasProperty, ReferenceListProperty
 from kivy.uix.widget import Widget
 
-from concentricui.behaviours.concentricshapes import ConcentricShapes
-from concentricui.oblong.oblong import Oblong
-from concentricui.widgets.textbutton import Text
+from ConcentricUI.behaviours.concentricshapes import ConcentricShapes
+from ConcentricUI.oblong.oblong import Oblong
+from ConcentricUI.widgets.textbutton import Text
 
 
 class ConcentricOblongs(ConcentricShapes):
