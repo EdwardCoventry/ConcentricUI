@@ -2,6 +2,10 @@
 
 all__ = ('ColourScreen',)
 
+from functools import partial
+
+from kivy.clock import Clock
+
 from kivy.graphics import Color, Rectangle
 from kivy.properties import NumericProperty, ReferenceListProperty
 from kivy.uix.screenmanager import Screen
@@ -43,9 +47,13 @@ class ColourScreen(Screen, ColourWidget):
 
         # self.add_widget(self.test_button)
 
+        Clock.schedule_once(partial(self.set_size, self, self.size), -1)
+
+        #self.set_size(self, self.size)
+
         self.bind(size=self.set_size, background_colour=self.set_background_colour)
 
-    def set_size(self, wid, size):
+    def set_size(self, wid, size, *args):
         self.top_bar.height = size[1] * self.top_bar_size_hint
         # self.top_bar.size_hint_y = 0.04
         self.top_bar_y = self.top_bar.y
