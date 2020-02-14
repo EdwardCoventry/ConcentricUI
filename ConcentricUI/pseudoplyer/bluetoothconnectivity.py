@@ -1,24 +1,12 @@
-from threading import Thread
-
 from kivy import platform
 
-
-#  https://stackoverflow.com/questions/14234547/threads-with-decorators
-def run_in_thread(fn):
-    def run(*args, **kwargs):
-        t = Thread(target=fn, args=args, kwargs=kwargs)
-        t.daemon = True
-        t.start()
-        return t  # <-- this is new!
-
-    return run
+from utilities.runinthread import run_in_thread
 
 if platform == 'android':
-    from jnius import autoclass, JavaException
-
-    BluetoothAdapter = autoclass('android.bluetooth.BluetoothAdapter')
-    BluetoothDevice = autoclass('android.bluetooth.BluetoothDevice')
-    BluetoothSocket = autoclass('android.bluetooth.BluetoothSocket')
+    from jnius import autoclass
+    BluetoothAdapter = autoclass('android.bt.BluetoothAdapter')
+    BluetoothDevice = autoclass('android.bt.BluetoothDevice')
+    BluetoothSocket = autoclass('android.bt.BluetoothSocket')
     IOException = autoclass('java.io.IOException')
     UUID = autoclass('java.util.UUID')
 elif platform == 'win':

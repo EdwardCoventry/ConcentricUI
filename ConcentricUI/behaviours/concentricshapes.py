@@ -4,11 +4,12 @@ all__ = ('ConcentricShapes',)
 
 from kivy.clock import Clock
 
-#from kivy.uix.image import Image
-from kivy.uix.image import AsyncImage
+from kivy.uix.image import Image
+#from kivy.uix.image import AsyncImage
 
-AsyncImage.anim_delay.defaultvalue = -1
+#AsyncImage.anim_delay.defaultvalue = -1
 
+from functools import partial
 
 from itertools import zip_longest
 
@@ -213,11 +214,11 @@ class ConcentricShapes(ColourWidget):
         # if self.image_source:
         #     shape = self.draw_image(self.image_source)
         #     self.shape_list.append(shape)
-    def do_image_source(self, wid, source, *args):
+    def do_image_source(self, wid, source):
 
         if self:
             if not self.image:
-                self.image = AsyncImage(source=source)
+                self.image = Image(source=source)
 
                 self.bind(pos=self.set_image_size_and_pos,
                           size=self.set_image_size_and_pos,
