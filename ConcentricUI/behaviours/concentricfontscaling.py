@@ -4,14 +4,16 @@ from kivy.uix.widget import Widget
 
 
 class ConcentricFontScaling(Widget):
-    font_size_hint = NumericProperty()
+    font_size_hint = NumericProperty(0.7)
     inner_width, inner_height = NumericProperty(), NumericProperty()
     inner_size = ReferenceListProperty(inner_width, inner_height)
 
     def __init__(self, **kwargs):
+
         super(ConcentricFontScaling, self).__init__(**kwargs)
 
-        self.bind(text=Clock.schedule_once(self.set_font_size, 0))
+        self.bind(text=Clock.schedule_once(self.set_font_size, 0),
+                  size=Clock.schedule_once(self.set_font_size, 0))
 
 
     # def initially_set_font_size(self, wid, text):

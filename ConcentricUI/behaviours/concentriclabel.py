@@ -12,8 +12,6 @@ class ConcentricLabel(Label, ConcentricFontScaling):
     text = StringProperty(allownone=True)
 
     def update(self, *args):
-
-
         self.texture_update()
 
     def __init__(self, **kwargs):

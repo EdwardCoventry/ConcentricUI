@@ -45,7 +45,11 @@ class Storage(object):
         return store
 
 
-def get_store(store_name, subfolder=None, as_backup=False, from_backup=False):
+def get_store(store_name, subfolder='stores', as_backup=False, from_backup=False):
+
+
+    print('GET STORE NAME', store_name, subfolder)
+
     app = App.get_running_app()
 
     #  remove .pydict
@@ -62,6 +66,7 @@ def get_store(store_name, subfolder=None, as_backup=False, from_backup=False):
     if not subfolder:
         #  get the path (straightforward)
         store_path = path.join(app.user_data_dir, store_name)
+        print('hmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm', store_path)
     else:
         #  get the subfolder's path
         folder_path = path.join(app.user_data_dir, subfolder)

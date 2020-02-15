@@ -18,7 +18,7 @@ from kivy.properties import BooleanProperty, NumericProperty, ObjectProperty, Li
     AliasProperty, OptionProperty, StringProperty
 
 from ConcentricUI.colourscheme.colourwidget import ColourWidget
-
+from ConcentricUI.behaviours.concentricfontscaling import ConcentricFontScaling
 
 class ConcentricShapes(ColourWidget):
     trim = OptionProperty(True, options=(True, False, 'state', 'focus', ('state', 'focus')))
@@ -177,6 +177,10 @@ class ConcentricShapes(ColourWidget):
         #     self.set_secondary_colours()
 
         # if self.trim is True:
+
+        if issubclass(self.__class__, ConcentricFontScaling):
+            Clock.schedule_once(self.set_font_size, 0)
+
 
     def draw_shapes(self):
 
