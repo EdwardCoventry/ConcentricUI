@@ -31,6 +31,8 @@ class ConcentricFontScaling(Widget):
         raise Exception('This is set when subclassed!')
 
     def get_texture_size(self):
+        if not hasattr(self, '_label'):
+            return False
         texture_size = self._label.content_size
         if any(texture_size):
             return texture_size
