@@ -59,7 +59,10 @@ class ConcentricFontScaling(Widget):
 
         self.update()
 
-        if not self.get_texture_size():
+        texture_size = self.get_texture_size()
+        if texture_size:
+            self.texture_size = texture_size
+        else:
             return
 
         self.font_size = (self.height / 2) * self.font_size_hint

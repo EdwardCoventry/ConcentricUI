@@ -462,6 +462,9 @@ class ConcentricShapes(ColourWidget):
 
     def get_inner_y_at_x(self, x, layer='inner', ratio=None, both_coordinates=False):
 
+        if not self.shape_list:
+            return None, None
+
         if ratio is None:
             scale_bounds = False
         else:
