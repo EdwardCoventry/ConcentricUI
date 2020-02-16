@@ -79,7 +79,7 @@ class ConcentricPopup(ModalView):
         #
         self.top_bar = TopBarShape(id='top_bar', master_colour='trim_colour', shape_size_hint_list=[1],
                                    allow_concentric=False, size_hint_y=0.04, pos_hint={'top': 1})
-        save_and_close_button = TextButton(text='Save and Close', pos=self.top_bar.pos, size=self.top_bar.size)
+        save_and_close_button = TextButton(text='Close', pos=self.top_bar.pos, size=self.top_bar.size)
         save_and_close_button.bind(on_release=self.save_and_close)
         self.top_bar.content_pin = save_and_close_button
 

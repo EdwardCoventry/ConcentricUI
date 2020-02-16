@@ -241,7 +241,8 @@ class ConcentricTextInput(ConcentricShapes, TextInput):
             self.oblong_cursor_colour_instruction = Color(*self.cursor_color)
             self.oblong_cursor = Oblong(size=(self.cursor_width, self.font_size), orientation='vertical')
 
-        self.bind(cursor_pos=self.set_oblong_cursor_pos)
+        self.bind(cursor_pos=self.set_oblong_cursor_pos,
+                  pos=self.set_oblong_cursor_pos)
         # self.bind(size=self.set_oblong_cursor_size)
         # self.bind(texture_size=self.set_oblong_cursor_size)
         self.bind(cursor_color=self.set_oblong_cursor_colour)
@@ -253,7 +254,7 @@ class ConcentricTextInput(ConcentricShapes, TextInput):
         self.bind(focus=self.hide_oblong_cursor_on_loose_focus)
 
 
-        self.bind(text=self.set_font_size)
+        #self.bind(text=self.set_font_size)
 
     def oblong_cursor_blink(self, wid=None, cursor_state=False):
 

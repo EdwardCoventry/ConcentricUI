@@ -109,7 +109,6 @@ class ConcentricOblongs(ConcentricShapes):
 
 
         self.set_pin_pos()
-
     def set_pin_pos(self, *args):
 
         if not self.shape_list:
@@ -120,6 +119,10 @@ class ConcentricOblongs(ConcentricShapes):
                 diameter = self.get_inner_shape_diameter()
                 self.opening_pin.size = (diameter, diameter)
                 self.opening_pin.center = self.opening_anchor
+
+                print(self.opening_pin, 'self.opening_anchor', self.opening_anchor)
+
+
         if self.closing_pin:
             if issubclass(type(self.closing_pin), Widget):
                 diameter = self.get_inner_shape_diameter()
