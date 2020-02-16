@@ -12,7 +12,11 @@ class ConcentricLabel(Label, ConcentricFontScaling):
     text = StringProperty(allownone=True)
 
     def update(self, *args):
-        self.texture_update()
+        try:
+            self.texture_update()
+        except:
+            print('this will come back to bite me')
+            #fixme
 
     def __init__(self, **kwargs):
         super(ConcentricLabel, self).__init__(**kwargs)

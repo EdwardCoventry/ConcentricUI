@@ -45,7 +45,7 @@ class ConcentricShapes(ColourWidget):
     #     self.shape_list[-1].source = image
 
     def on_button_source(self, wid, button_source):
-        self.image_source = "textures\\buttons\\{}_button.png".format(button_source)
+        self.image_source = "textures/buttons/{}_button.png".format(button_source)
 
     def on_show_trim(self, wid, show_trim):
 
