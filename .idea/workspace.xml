@@ -27,24 +27,24 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="49" />
+          <entry key="py" value="50" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="49" />
+          <entry key="Python" value="50" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1436" />
+          <entry key="py" value="1437" />
           <entry key="txt" value="85" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="85" />
-          <entry key="Python" value="1436" />
+          <entry key="Python" value="1437" />
         </counts>
       </usages-collector>
     </session>
@@ -56,15 +56,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
               <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ConcentricUI/widgets/screenchangespinner.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -120,6 +111,15 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/setup.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="41" lean-forward="true" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/kivy/uix/behaviors/togglebutton.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -150,7 +150,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ConcentricUI/widgets/popup.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="138">
@@ -170,7 +170,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Image</find>
       <find>update</find>
       <find>do_image_source</find>
       <find>textures/buttons/</find>
@@ -200,6 +199,7 @@
       <find>fu</find>
       <find>FullScr</find>
       <find>T</find>
+      <find>angle_</find>
     </findStrings>
     <replaceStrings>
       <replace>from ConcentricUI.</replace>
@@ -231,7 +231,6 @@
         <option value="$PROJECT_DIR$/ConcentricUI/behaviours/concentricshapes.py" />
         <option value="$PROJECT_DIR$/ConcentricUI/oblong/oblongtextinput.py" />
         <option value="$PROJECT_DIR$/ConcentricUI/oblong/concentricoblongs.py" />
-        <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/ConcentricUI/circle/circle.py" />
         <option value="$PROJECT_DIR$/ConcentricUI/widgets/textbutton.py" />
         <option value="$PROJECT_DIR$/ConcentricUI/widgets/topbar.py" />
@@ -242,6 +241,7 @@
         <option value="$PROJECT_DIR$/ConcentricUI/behaviours/concentricfontscaling.py" />
         <option value="$PROJECT_DIR$/ConcentricUI/colourscheme/colourscreen.py" />
         <option value="$PROJECT_DIR$/ConcentricUI/widgets/popup.py" />
+        <option value="$PROJECT_DIR$/setup.py" />
       </list>
     </option>
   </component>
@@ -424,12 +424,12 @@
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12434141" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12223393" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32848233" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32848233" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -617,13 +617,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="38" lean-forward="true" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ConcentricUI/colourscheme/colourscreen_old.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -750,6 +743,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="71" column="9" lean-forward="true" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="41" lean-forward="true" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
         </state>
       </provider>
     </entry>
