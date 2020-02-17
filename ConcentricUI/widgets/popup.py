@@ -7,6 +7,7 @@ from kivy.properties import ObjectProperty
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.modalview import ModalView
 
+from ConcentricUI.colourscheme.colourwidget import ColourWidget
 from ConcentricUI.roundedrectangle.concentricroundedrectangles import ConcentricRoundedRectangles
 from ConcentricUI.widgets.textbutton import TextButton
 from ConcentricUI.widgets.topbar import TopBarShape
@@ -49,7 +50,7 @@ from ConcentricUI.widgets.topbar import TopBarShape
 #             id: use_as_contents
 
 
-class ConcentricPopup(ModalView):
+class ConcentricPopup(ModalView, ColourWidget):
     content = ObjectProperty()
     top_bar = ObjectProperty()
 
@@ -77,7 +78,7 @@ class ConcentricPopup(ModalView):
         popup_boxlayout = BoxLayout(orientation='vertical')
 
         #
-        self.top_bar = TopBarShape(id='top_bar', master_colour='trim_colour', shape_size_hint_list=[1],
+        self.top_bar = TopBarShape(id='top_bar', shape_size_hint_list=[1],
                                    allow_concentric=False, size_hint_y=0.04, pos_hint={'top': 1})
         save_and_close_button = TextButton(text='Close', pos=self.top_bar.pos, size=self.top_bar.size)
         save_and_close_button.bind(on_release=self.save_and_close)

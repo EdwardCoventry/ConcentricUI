@@ -20,6 +20,7 @@ class Text(ColourWidget, Label):
     def set_size(self, wid, size):
         self.text_size = size
         self.font_size = size[1] * self.font_ratio
+        #super(Text, self).set_size(wid, size)
 
     def set_colour(self, wid, colour):
         self.color = colour

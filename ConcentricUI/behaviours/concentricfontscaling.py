@@ -13,7 +13,7 @@ class ConcentricFontScaling(Widget):
         super(ConcentricFontScaling, self).__init__(**kwargs)
 
         self.bind(text=Clock.schedule_once(self.set_font_size, 0),
-                  size=Clock.schedule_once(self.set_font_size, 0))
+                  size=Clock.schedule_once(self.set_font_size, 0),)
 
 
     # def initially_set_font_size(self, wid, text):

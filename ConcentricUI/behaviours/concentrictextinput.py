@@ -6,6 +6,7 @@ all__ = ('ConcentricButton',)
 
 from kivy.clock import Clock
 from kivy.graphics import Color
+from kivy.utils import rgba
 from kivy.properties import ObjectProperty, ListProperty, VariableListProperty, BooleanProperty, NumericProperty
 from kivy.uix.textinput import TextInputCutCopyPaste, TextInput
 
@@ -45,6 +46,8 @@ class ConcentricTextInput(ConcentricShapes, TextInput):
     do_padding = ObjectProperty('test')
 
     font_size_hint = NumericProperty(1)
+
+    needs_text_colour = False
 
     def update(self, *args):
         pass
@@ -97,7 +100,7 @@ class ConcentricTextInput(ConcentricShapes, TextInput):
 
         self.oblong_cursor.set_size((self.cursor_width, self.font_size))
 
-        self.set_oblong_cursor_pos()
+        self.set_oblong_cursor_pos(self, self.cursor_pos)
         return
         #
         #
@@ -120,11 +123,11 @@ class ConcentricTextInput(ConcentricShapes, TextInput):
         # self.font_size = font_size
         # self._trigger_refresh_text()
 
-    # def on_text(self, wid, text):
-    #
-    #     if self.text:
-    #         self.set_font_size()
-    #
+    def on_text(self, wid, text):
+
+        if self.text:
+            self.set_font_size()
+                #
     #     Clock.schedule_once(self.texture_size_callback)
     #
     #     print(':))', self.text_colour, self.foreground_color)
@@ -197,9 +200,9 @@ class ConcentricTextInput(ConcentricShapes, TextInput):
 
     scale_text = BooleanProperty(True)
 
-    def set_oblong_cursor_pos(self, *args):
+    def set_oblong_cursor_pos(self, wid, pos):
         if self.oblong_cursor:
-            self.oblong_cursor.set_pos((self.cursor_pos[0], self.cursor_pos[1] - self.oblong_cursor.size[1]))
+            self.oblong_cursor.set_pos((pos[0] + self.font_size/12, pos[1] - self.font_size*1.1))
 
     def set_oblong_cursor_size(self, *args):
         if self.oblong_cursor and len(self.texture_size) == 2:
@@ -211,7 +214,7 @@ class ConcentricTextInput(ConcentricShapes, TextInput):
             self.oblong_cursor_colour_instruction.rgba = self.cursor_color
 
     cursor_color = ListProperty([1, 1, 1, 0.5])
-    selection_color = ListProperty([1, 1, 1, 0.5])
+    selection_color = ListProperty([0.8, 0.8, 0.8, 0.4])
 
     def __init__(self, **kwargs):
         self.background_color = [0, 0, 0, 0]
@@ -247,14 +250,24 @@ class ConcentricTextInput(ConcentricShapes, TextInput):
         # self.bind(texture_size=self.set_oblong_cursor_size)
         self.bind(cursor_color=self.set_oblong_cursor_colour)
 
-        with self.canvas.before:
-            self.text_colour_instruction = Color(*self.text_colour)
+        self.bind(text_colour=self.set_text_colour)
 
         self.bind(_cursor_blink=self.oblong_cursor_blink)
         self.bind(focus=self.hide_oblong_cursor_on_loose_focus)
 
 
         #self.bind(text=self.set_font_size)
+
+    def set_text_colour(self, wid, colour):
+        print('COLOORURURURR', [x*255 for x in colour])
+        self.text_colour_instruction = Color(colour)
+        self.text_colour = colour
+        self.color = Color(colour)
+
+        with self.canvas.before:
+            self.text_colour_instruction = Color(*self.text_colour)
+
+
 
     def oblong_cursor_blink(self, wid=None, cursor_state=False):
 
@@ -304,11 +317,11 @@ class ConcentricTextInput(ConcentricShapes, TextInput):
     # def set_colour(self, wid, colour):
     #     self.foreground_color = colour
 
-    def on_text_colour(self, wid, colour):
-        self.text_colour_instruction.rgba = colour
-        self.foreground_color = self.text_colour
-
     def on_focus(self, wid, focus):
         #  simple enough
         self.show_trim = focus
+
+    # def on_text(self, wid, text):
+    #
+    #     self.content_pin = text
 

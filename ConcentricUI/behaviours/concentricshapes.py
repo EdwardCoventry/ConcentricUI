@@ -644,12 +644,12 @@ class ConcentricShapes(ColourWidget):
 
             self.get_shape_dictionary()
 
-            #if self.needs_text_colour:
-            if True:
+            if self.needs_text_colour:
+            #if True:
                 #  not my favourite bit of code, but as colour property will fill in as [1, 1, 1, 1], what else can i do
                 self.text_colour = shape_dictionary[0]['shape_colour']
-            #if self.needs_trim_colour:
-            if True:
+            if self.needs_trim_colour:
+            #if True:
                 self.trim_colour = shape_dictionary[0]['shape_colour']
                 #self.set_image_colour(self.trim_colour)
 

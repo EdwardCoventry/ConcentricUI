@@ -198,8 +198,10 @@ class ColourWidget(Widget, ColourProperties):
     colour_scheme = StringProperty('app')
     use_master_colour = StringProperty()
 
-    needs_trim_colour = BooleanProperty(False)
-    needs_text_colour = BooleanProperty(False)
+    needs_trim_colour = BooleanProperty(True)
+    needs_text_colour = BooleanProperty(True)
+
+
 
     def __init__(self, **kwargs):
 
