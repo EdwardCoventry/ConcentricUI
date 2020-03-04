@@ -15,6 +15,8 @@ class OblongTextInput(ConcentricOblongs, ConcentricTextInput):
     #     print('testsettsttsxzxt', text)
     #     self.font_size = self.inner_height
 
+    pin_canvas_layer = 'after'
+
     def __init__(self, **kwargs):
         super(OblongTextInput, self).__init__(**kwargs)
 

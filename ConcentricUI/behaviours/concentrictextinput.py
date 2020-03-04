@@ -217,6 +217,7 @@ class ConcentricTextInput(ConcentricShapes, TextInput):
     selection_color = ListProperty([0.8, 0.8, 0.8, 0.4])
 
     def __init__(self, **kwargs):
+
         self.background_color = [0, 0, 0, 0]
         self.background_normal = ''
         self.background_down = ''

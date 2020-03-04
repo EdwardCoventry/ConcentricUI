@@ -22,6 +22,8 @@ class ConcentricOblongs(ConcentricShapes):
 
     pins = ReferenceListProperty(opening_pin, closing_pin, content_pin)
 
+    pin_canvas_layer = None
+
     def __init__(self, **kwargs):
 
         self.font_ratio = 0.25
@@ -101,14 +103,14 @@ class ConcentricOblongs(ConcentricShapes):
 
         try:
             self.remove_widget(pin)
-            self.add_widget(pin_widget)
+            self.add_widget(pin_widget, canvas=self.pin_canvas_layer)
         except:
             print("couldn't add {} widget. probably its already added".format(pin_position))
 
         setattr(self, pin_position, pin_widget)
 
-
         self.set_pin_pos()
+
     def set_pin_pos(self, *args):
 
         if not self.shape_list:

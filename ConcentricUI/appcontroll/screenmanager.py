@@ -1,9 +1,11 @@
+from kivy.app import App
 from kivy.utils import platform
 from kivy.uix.screenmanager import ScreenManager
 from kivy.core.window import Window
 
 
 class AdvancedScreenManager(ScreenManager):
+
 
     def __init__(self, **kwargs):
         super(AdvancedScreenManager, self).__init__(**kwargs)

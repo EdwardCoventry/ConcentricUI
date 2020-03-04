@@ -19,7 +19,7 @@ class MasterColour(object):
             and for some other widgets this could be self.background_color or even maybe self.color """
         return self._master_colour
 
-    def set_master_colour(self, value):
+    def set_master_colour(self, value, *args):
         """ This function is 'continued' in concentricshapes """
 
         if value == None:

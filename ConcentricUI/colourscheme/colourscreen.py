@@ -34,6 +34,11 @@ class ColourScreen(Screen, ColourWidget):
 
         self.bind(size=self.set_size, background_colour=self.set_background_colour)
 
+    # def add_widget(self, widget, index=0, canvas=None):
+    #     widget.background_colour = self.background_colour
+    #     widget.foreground_colour = self.foreground_colour
+    #     super(ColourScreen, self).add_widget(widget, index, canvas)
+
     def set_size(self, wid, size, *args):
         self.background_rectangle.size = self.size
 

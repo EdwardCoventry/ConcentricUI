@@ -2,7 +2,7 @@
 
 all__ = ('ConcentricShapes',)
 
-from kivy.clock import Clock
+from kivy.clock import Clock, mainthread
 
 from kivy.uix.image import Image
 #from kivy.uix.image import AsyncImage
@@ -37,14 +37,26 @@ class ConcentricShapes(ColourWidget):
     button_source = StringProperty()
     image = ObjectProperty()
 
-    outer_shape = ObjectProperty()
-    inner_shape = ObjectProperty()
+    # outer_shape = ObjectProperty()
+    # inner_shape = ObjectProperty()
+
+    @property
+    def inner_shape(self):
+        return self.shape_list[-1]
+
+    @property
+    def outer_shape(self):
+        return self.shape_list[0]
 
     # def set_image(self, *args):
     #     image = self.image
     #     self.shape_list[-1].source = image
 
     def on_button_source(self, wid, button_source):
+        self.set_image_source(button_source)
+
+    #@mainthread
+    def set_image_source(self, button_source):
         self.image_source = "textures/buttons/{}_button.png".format(button_source)
 
     def on_show_trim(self, wid, show_trim):
@@ -165,11 +177,16 @@ class ConcentricShapes(ColourWidget):
         # self.set_secondary_colours()
 
         self.draw_shapes()
+
         self.bind(pos=self.update_shape_list_pos,
                   size=Clock.schedule_once(self.update_shape_list_size, 0),
                   master_colour=Clock.schedule_once(self.set_secondary_colours, -1),
                   image_source=self.do_image_source)
 
+        if self.button_source:
+            self.set_image_source(self.button_source)
+            self.do_image_source(self, self.image_source)
+            print('£££££££££££', self.image_source)
 
         # if self.master_colour and self.use_master_colour not in ('foreground_colour', 'background_colour', 'text_colour', 'trim_colour'):
         #     if self.__class__.__name__ == 'ScreenChangeSpinner':
@@ -193,10 +210,8 @@ class ConcentricShapes(ColourWidget):
         self.colour_instruction_list = []
 
         with self.canvas.before:
-            shape_dictionary = self.shape_dictionary if self.allow_concentric else [self.shape_dictionary[0]]
+            shape_dictionary = self.shape_dictionary if self.allow_concentric else [self.shape_dictionary[-1]]
             for i, dictionary in enumerate(shape_dictionary):
-
-                image_flag = False
 
                 shape_colour = dictionary['shape_colour']
                 if not shape_colour:
@@ -207,10 +222,10 @@ class ConcentricShapes(ColourWidget):
                 shape = self.draw_shape(image_source=False, **dictionary)
 
                 if i == 0:
-                    self.outer_shape = shape
+                    #self.outer_shape = shape
                     self.outer_shape_dictionary = dictionary
                 elif i == len(shape_dictionary) - 1:
-                    self.inner_shape = shape
+                    #self.inner_shape = shape
                     self.inner_shape_dictionary = dictionary
 
                 self.shape_list.append(shape)
@@ -218,7 +233,9 @@ class ConcentricShapes(ColourWidget):
         # if self.image_source:
         #     shape = self.draw_image(self.image_source)
         #     self.shape_list.append(shape)
+    #@mainthread
     def do_image_source(self, wid, source):
+
 
         if self:
             if not self.image:
@@ -231,6 +248,8 @@ class ConcentricShapes(ColourWidget):
                 self.add_widget(self.image)
             else:
                 self.image.source = source
+
+        print('doing it!!!', source)
 
 
     def set_image_size_and_pos(self, *args):
@@ -671,7 +690,7 @@ class ConcentricShapes(ColourWidget):
         if self.colour_instruction_list:
             for instruction, colour in zip(self.colour_instruction_list, shape_colour_list):
                 instruction.rgba = colour
-            if not self.show_trim and self.allow_concentric:
+            if not self.show_trim or self.allow_concentric:
                 self.outer_alpha_store = instruction.a
                 self.colour_instruction_list[0].a = 0
             # self.colour_instruction_list[0].a = 1 if self.show_trim else 0
