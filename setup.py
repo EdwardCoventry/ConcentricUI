@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='ConcentricUI',
-    version='0.1.3.3',
+    version='0.1.3.4',
     packages=['ConcentricUI',
               'ConcentricUI.pseudoplyer',
               'ConcentricUI.circle',

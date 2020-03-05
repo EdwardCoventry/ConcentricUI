@@ -10,3 +10,5 @@ class CircleToggleButton(ConcentricCircles, ConcentricToggleButton):
 
     def __init__(self, **kwargs):
         super(CircleToggleButton, self).__init__(**kwargs)
+
+    #def on_state(self, wid, args):

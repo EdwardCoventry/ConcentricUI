@@ -11,15 +11,17 @@ from ConcentricUI.behaviours.concentriclabel import ConcentricLabel
 
 class ConcentricButton(ButtonBehavior, ConcentricLabel):
 
-    def on_state(self, *args):
+    def on_state(self, wid, state):
 
-        Clock.schedule_once(self.set_trim, -1)
+        #Clock.schedule_once(self.set_trim, -1)
         #Clock.schedule_once(partial(self.on_show_trim, True), -1)
 
-        # super(ConcentricButton, self).on_state(*args)
+        #super(ConcentricButton, self).on_state(*args)
 
-    def set_trim(self, *args):
-        if self.state == 'down':
+        self.set_trim(state=state)
+
+    def set_trim(self, state, *args):
+        if state == 'down':
             self.show_trim = True
         else:
             self.show_trim = False

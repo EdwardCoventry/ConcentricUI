@@ -18,7 +18,6 @@ class ConcentricFontScaling(Widget):
 
     # def initially_set_font_size(self, wid, text):
     #
-    #     print('did ity intially. did this work??')
     #
     #     if not text:
     #         return
