@@ -48,7 +48,7 @@ class Circle(Ellipse):
 
     center = ReferenceListProperty(center_x, center_y)
 
-    def set_center(self, center):
+    def set_center(self, center, *args):
         center_x, center_y = center
         self.set_center_x(center_x)
         self.set_center_y(center_y)

@@ -62,7 +62,7 @@ class ColourProperties(object):
 
         self.do_colour_update()
 
-    def do_colour_update(self, *args):
+    def do_colour_update(self, wid, colour):
         pass
 
     def set_master_to_colour_attribute(self, colour_attribute_for_master_colour, *args):

@@ -201,7 +201,7 @@ class Oblong(VertexInstruction):
         self.center_y = value
         self.pos = self.pos[0], value - self.size[1] / 2.
 
-    def set_center(self, center):
+    def set_center(self, center, *args):
         """ This is when you have the center, and you want to set all else relevant """
         self.center_x, self.center_y = center
         self.set_center_x(self.center_x)

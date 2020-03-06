@@ -16,7 +16,7 @@ class RoundedRec(RoundedRectangle):
     def set_center_y(self, value):
         self.pos = self.pos[0], value - self.size[1] / 2.
 
-    def set_center(self, center):
+    def set_center(self, center, *args):
         center_x, center_y = center
         self.set_center_x(center_x)
         self.set_center_y(center_y)

@@ -5,6 +5,7 @@ all__ = ('ConcentricShapes',)
 from kivy.clock import Clock, mainthread
 
 from kivy.uix.image import Image
+from kivy.utils import rgba
 #from kivy.uix.image import AsyncImage
 
 #AsyncImage.anim_delay.defaultvalue = -1
@@ -91,7 +92,7 @@ class ConcentricShapes(ColourWidget):
 
     shape_list = ListProperty()
     shape_count = NumericProperty()
-    shape_size_hint_list = ListProperty([0.5, 0.7, 1])
+    shape_size_hint_list = ListProperty([1, 0.7, 0.5])
     shape_colour_list = ListProperty()
     shape_allow_collision_list = ListProperty()
     colour_instruction_list = ListProperty()
@@ -176,11 +177,13 @@ class ConcentricShapes(ColourWidget):
 
         # self.set_secondary_colours()
 
+        #self.get_shape_dictionary()
+
         self.draw_shapes()
 
         self.bind(pos=self.update_shape_list_pos,
-                  size=Clock.schedule_once(self.update_shape_list_size, 0),
-                  master_colour=Clock.schedule_once(self.set_secondary_colours, -1),
+                  size=self.update_shape_list_size,
+                  master_colour=self.set_secondary_colours,
                   image_source=self.do_image_source)
 
         if self.button_source:
@@ -216,7 +219,7 @@ class ConcentricShapes(ColourWidget):
                 shape_colour = dictionary['shape_colour']
                 if not shape_colour:
                     #  placeholder color
-                    shape_colour = (1, 1, 1, 1)
+                    shape_colour = (1, 1, 1, 0)
                 colour_instruction = Color(*shape_colour)
                 self.colour_instruction_list.append(colour_instruction)
                 shape = self.draw_shape(image_source=False, **dictionary)
@@ -236,14 +239,15 @@ class ConcentricShapes(ColourWidget):
     #@mainthread
     def do_image_source(self, wid, source):
 
-
         if self:
             if not self.image:
-                self.image = Image(source=source)
+                self.image = Image(source=source, color=self.trim_colour)
 
                 self.bind(pos=self.set_image_size_and_pos,
-                          size=self.set_image_size_and_pos,
-                          trim_colour=self.set_image_colour)
+                          size=self.set_image_size_and_pos)
+
+                if self.needs_trim_colour:
+                    self.bind(trim_colour=self.set_image_colour)
 
                 self.add_widget(self.image)
             else:
@@ -265,7 +269,13 @@ class ConcentricShapes(ColourWidget):
                                 "only 'inner' and 'outer' are supported"
                                 .format(self.image_size))
 
+    @mainthread
     def set_image_colour(self, wid, colour, *args):
+
+        if wid.__class__.__name__ == 'OblongButton':
+
+            print(wid.button_source, 'TRIM SET TO', [x*255 for x in colour])
+
 
         self.image.color = colour
 
@@ -300,28 +310,46 @@ class ConcentricShapes(ColourWidget):
 
     def set_center(self, center, *args):
         self.center = center
-        self.update_shape_list_pos()
+
+        #pos = center[0] - self.size[0]/2, center[1] - self.size[1]/2
+
+        self.update_shape_list_pos(self, pos=None, center=center)
 
 
-    def update_shape_list_pos(self, *args):
+    def update_shape_list_pos(self, wid, pos=None, center=None, *args):
+
+        #print('1234', wid, pos, center)
+
+        self.do_update_shape_list_pos(wid, pos, center)
+        #Clock.schedule_once(partial(self.do_update_shape_list_pos, wid, pos, center), -1)
+
+    def do_update_shape_list_pos(self, wid, pos=None, center=None, *args):
+        if not center:
+            center = pos[0] + self.size[0]/2, pos[1] + self.size[1]/2
 
         for shape in self.shape_list:
             #  fixme aww i dont get to use an AliasProperty
             #  i believe it may be impossible, as Elipsis doesn't have a center x, center y, etc..
             #  come to think of it that's the very reason that i'm adding it
             pass
-            shape.set_center(self.center)
+            shape.set_center(center)
 
-        Clock.schedule_once(self.set_image_size_and_pos, -1)
+        #Clock.schedule_once(self.set_image_size_and_pos, -1)
+        self.set_image_size_and_pos()
 
-    def update_shape_list_size(self, *args):
+    def update_shape_list_size(self, wid, size):
+        #Clock.schedule_once(partial(self.do_update_shape_list_size, wid, size), -1)
+        self.do_update_shape_list_size(wid, size)
+
+    def do_update_shape_list_size(self, wid, size, *args):
         for shape, size_hint in zip(self.shape_list, self.shape_size_hint_list):
             pass
 
-            shape.set_size(self.size, size_hint)
+            shape.set_size(size, size_hint)
+            #Clock.schedule_once(partial(shape.set_center, self.center))
             shape.set_center(self.center)
 
-        self.update_shape_list_pos()
+        self.update_shape_list_pos(self, None, self.center)
 
     def get_inner_shape_width(self):
 
@@ -638,21 +666,26 @@ class ConcentricShapes(ColourWidget):
         else:
             return uncapped_colour_list
 
-    def set_secondary_colours(self, *args):
+    def set_secondary_colours(self, wid, colour):
 
-        if not self.master_colour and self.shape_colour_list:
+        if not colour and self.shape_colour_list:
             self.master_colour = self.shape_colour_list[0]
 
-        if self.master_colour and self.shape_list:
+        if colour and self.shape_list:
+
+            if type(colour) == str:
+                colour = rgba(colour)
 
             shape_dictionary = self.shape_dictionary
             min_size_hint = min(self.shape_size_hint_list)
             for shape in shape_dictionary:
-                base_colour = self.master_colour
+                base_colour = colour
                 # if i:
                 colour_size_hint = shape['shape_size_hint']
                 # else:
                 #     colour_size_hint = 1
+
+
                 auto_colour = self.set_colour_by_size_hint(base_colour, colour_size_hint, min_size_hint)
 
 
@@ -660,7 +693,7 @@ class ConcentricShapes(ColourWidget):
 
             self.shape_dictionary = shape_dictionary
 
-            self.get_shape_dictionary()
+            #self.get_shape_dictionary()
 
             if self.needs_text_colour:
             #if True:
@@ -718,9 +751,9 @@ class ConcentricShapes(ColourWidget):
     #
     #     self.shape_colour_list[-1] = self.trim_colour
 
-    def do_colour_update(self, *args):
-        super(ConcentricShapes, self).do_colour_update(*args)
-        self.set_secondary_colours()
+    def do_colour_update(self, wid, colour):
+        super(ConcentricShapes, self).do_colour_update(wid, colour)
+        self.set_secondary_colours(wid, colour)
 
     def get_inner_colour(self):
 

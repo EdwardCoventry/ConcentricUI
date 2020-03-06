@@ -49,9 +49,9 @@ class MasterColour(object):
 
         """ This function is 'continued' in concentricshapes """
 
-        self.do_colour_update()
+        self.do_colour_update(self, value)
 
-    def do_colour_update(self, *args):
+    def do_colour_update(self, wid, colour):
         pass
 
     def set_master_to_colour_attribute(self, colour_attribute_for_master_colour, *args):
@@ -207,7 +207,9 @@ class ColourWidget(Widget, ColourProperties):
 
         super(ColourWidget, self).__init__(**kwargs)
 
-        Clock.schedule_once(self.do_colour_scheme)
+        #self.do_colour_scheme(self.colour_scheme)
+
+        Clock.schedule_once(self.do_colour_scheme, -1)
 
     def do_colour_scheme(self, *args):
 
