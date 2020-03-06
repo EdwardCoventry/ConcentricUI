@@ -27,10 +27,11 @@ class Storage(object):
 
     def __init__(self):
 
-        #  first try and get user_data_dir from the app
-        self.user_data_dir = App.get_running_app().user_data_dir
-        #  if that fails then youre in the service. get user_data_dir from service common
-        if not self.user_data_dir:
+        if App.get_running_app():
+            #  first try and get user_data_dir from the app
+            self.user_data_dir = App.get_running_app().user_data_dir
+        else:
+            #  if that fails then youre in the service. get user_data_dir from service common
             from service import servicecommon
             self.user_data_dir = servicecommon.user_data_dir
 

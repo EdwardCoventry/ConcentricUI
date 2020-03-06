@@ -267,7 +267,6 @@ class ConcentricShapes(ColourWidget):
 
     def set_image_colour(self, wid, colour, *args):
 
-
         self.image.color = colour
 
     # def draw_image(self, source):

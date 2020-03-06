@@ -11,4 +11,3 @@ class CircleLabel(ConcentricCircles, ConcentricLabel):
         super(CircleLabel, self).__init__(**kwargs)
 
     # def on_size(self, wid, size):
-    #     print('dododoodododod!!!!!', self.master_colour)

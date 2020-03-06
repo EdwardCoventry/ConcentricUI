@@ -126,7 +126,6 @@ class CircleSlider(Slider, ConcentricCircles):
         self.circle_label.text = self.formatted_value
 
     # def on_text_colour(self, wid, colour):
-    #     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>', colour)
     #     self.set_cursor_text_colour()
 
     def set_cursor_text_colour(self, *args):

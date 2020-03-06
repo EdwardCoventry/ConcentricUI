@@ -286,9 +286,7 @@ class SendReceive(Widget):
                 replaced += 1
             else:
                 added += 1
-            print('item_id', type(item_id), item_id)
             selected_store[item_id] = item_info
-        print('{} items added and {} items replaced'.format(added, replaced))
 
         selected_store.store_load()
         selected_store.store_sync()

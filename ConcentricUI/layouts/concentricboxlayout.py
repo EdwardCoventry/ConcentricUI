@@ -18,6 +18,4 @@ class ConcentricBoxLayout(BoxLayout):
         #     self.bind(center=widget.update_shape_list_pos)
         #     #widget.center_x = self.center_x
 
-
-
         super(ConcentricBoxLayout, self).add_widget(widget, *args, **kwargs)

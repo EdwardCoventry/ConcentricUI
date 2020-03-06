@@ -12,7 +12,6 @@ class OblongTextInput(ConcentricOblongs, ConcentricTextInput):
 
     # def on_text(self, wid, text):
     #
-    #     print('testsettsttsxzxt', text)
     #     self.font_size = self.inner_height
 
     pin_canvas_layer = 'after'
@@ -39,8 +38,6 @@ class OblongTextInput(ConcentricOblongs, ConcentricTextInput):
     #     if self.orientation == 'horizontal':
     #         left = self.opening_pin.right if self.opening_pin else self.inner_x
     #         right = self.closing_pin.x if self.closing_pin else self.inner_right
-    #
-    #         print('innnniiiiii', self.inner_x)
     #
     #         width = right - left
     #         height = self.height

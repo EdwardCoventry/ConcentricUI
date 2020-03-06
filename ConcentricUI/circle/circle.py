@@ -41,7 +41,6 @@ class Circle(Ellipse):
         """ Can't believe this wasn't already implemented! """
         self.pos = self.pos[0], value - self.size[1] / 2.
         #self.pos = self.pos[0], value - (self.size[1]/2. - value/2.)
-        #print('vvvvvvvvvvvvvvvvvv', value, self.pos[1])
 
 
     # center_y = AliasProperty(get_center_y, set_center_y, bind=['size', 'pos'])
