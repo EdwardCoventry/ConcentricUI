@@ -175,7 +175,7 @@ class ConcentricShapes(ColourWidget):
         #
         # print('!!!!!!!', string_master_colour, self.master_colour)
 
-        # self.set_secondary_colours()
+        self.set_secondary_colours(self, self.master_colour)
 
         #self.get_shape_dictionary()
 

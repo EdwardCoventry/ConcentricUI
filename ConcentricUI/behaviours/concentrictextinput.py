@@ -7,12 +7,14 @@ all__ = ('ConcentricButton',)
 from kivy.clock import Clock
 from kivy.graphics import Color
 from kivy.utils import rgba
-from kivy.properties import ObjectProperty, ListProperty, VariableListProperty, BooleanProperty, NumericProperty
+from kivy.properties import BooleanProperty, NumericProperty, ObjectProperty, ListProperty, VariableListProperty, StringProperty
 from kivy.uix.textinput import TextInputCutCopyPaste, TextInput
 
 from ConcentricUI.behaviours.concentricshapes import ConcentricShapes
 from ConcentricUI.roundedrectangle.roundedrectangle import RoundedRec as RoundedRectangle
 
+from kivy.uix.behaviors.focus import FocusBehavior
+from kivy.base import EventLoop
 
 class RoundedRectangleTextInputCutCopyPaste(TextInputCutCopyPaste):
     def __init__(self, **kwargs):
@@ -42,6 +44,8 @@ textinput.TextInputCutCopyPaste = RoundedRectangleTextInputCutCopyPaste
 
 class ConcentricTextInput(ConcentricShapes, TextInput):
     # keyboard_mode = 'auto'
+
+    keyboard_type = StringProperty('')
 
     do_padding = ObjectProperty('test')
 
@@ -326,3 +330,12 @@ class ConcentricTextInput(ConcentricShapes, TextInput):
     #
     #     self.content_pin = text
 
+    # def _ensure_keyboard(self):
+    #     if self._keyboard is None:
+    #         self._requested_keyboard = True
+    #         keyboard = self._keyboard =\
+    #             EventLoop.window.request_keyboard(
+    #                 self._keyboard_released, self, input_type=self.input_type)
+    #         keyboards = FocusBehavior._keyboards
+    #         if keyboard not in keyboards:
+    #             keyboards[keyboard] = None
