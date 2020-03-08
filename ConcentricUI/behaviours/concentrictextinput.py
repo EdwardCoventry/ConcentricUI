@@ -65,7 +65,8 @@ class ConcentricTextInput(ConcentricShapes, TextInput):
         #     keyboards = FocusBehavior._keyboards
         #     if keyboard not in keyboards:
         #         keyboards[keyboard] = None
-        App.get_running_app().last_input_type = self.input_type
+        #App.get_running_app().last_input_type = self.input_type
+        App.get_running_app().last_keyboard_widget = self
         super(ConcentricTextInput, self)._ensure_keyboard()
         self.poll_keyboard_height()
 
