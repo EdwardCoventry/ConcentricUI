@@ -146,6 +146,9 @@ class ConcentricShapes(ColourWidget):
 
         super(ConcentricShapes, self).__init__(**kwargs)
 
+        print('mmmmmmmmaster', self.master_colour)
+
+
         if 'shape_dictionary' in kwargs:
             shape_dictionary = kwargs.pop('shape_dictionary')
             self.shape_dictionary = shape_dictionary
@@ -175,11 +178,17 @@ class ConcentricShapes(ColourWidget):
         #
         # print('!!!!!!!', string_master_colour, self.master_colour)
 
-        self.set_secondary_colours(self, self.master_colour)
 
         #self.get_shape_dictionary()
 
+        # if self.master_colour != [1, 1, 1, 1]:
+        #     self.set_secondary_colours(self, self.master_colour)
+
+        self.set_secondary_colours(self, self.master_colour)
+
         self.draw_shapes()
+
+        self.set_secondary_colours(self, self.master_colour)
 
         self.bind(pos=self.update_shape_list_pos,
                   size=self.update_shape_list_size,
@@ -189,7 +198,6 @@ class ConcentricShapes(ColourWidget):
         if self.button_source:
             self.set_image_source(self.button_source)
             self.do_image_source(self, self.image_source)
-            print('£££££££££££', self.image_source)
 
         # if self.master_colour and self.use_master_colour not in ('foreground_colour', 'background_colour', 'text_colour', 'trim_colour'):
         #     if self.__class__.__name__ == 'ScreenChangeSpinner':
@@ -241,6 +249,9 @@ class ConcentricShapes(ColourWidget):
 
         if self:
             if not self.image:
+
+                print('ttttttttttttttt', self.trim_colour)
+
                 self.image = Image(source=source, color=self.trim_colour)
 
                 self.bind(pos=self.set_image_size_and_pos,
@@ -272,12 +283,12 @@ class ConcentricShapes(ColourWidget):
     @mainthread
     def set_image_colour(self, wid, colour, *args):
 
-        if wid.__class__.__name__ == 'OblongButton':
+        if wid and wid.__class__.__name__ == 'OblongButton':
 
             print(wid.button_source, 'TRIM SET TO', [x*255 for x in colour])
 
-
-        self.image.color = colour
+        if self.image:
+            self.image.color = colour
 
     # def draw_image(self, source):
     #
@@ -650,9 +661,14 @@ class ConcentricShapes(ColourWidget):
 
         original_alpha = colour[3] if len(colour) > 3 else None
 
-        colour_scalar = (size_hint - min_size_hint)
+        colour_scalar = 1.5
+        colour_exponent = 1.5
 
-        uncapped_colour_list = [x + colour_scalar for x in colour]
+        ratio_difference = size_hint - min_size_hint
+        ratio_difference *= colour_scalar
+        ratio_difference **= colour_exponent
+
+        uncapped_colour_list = [x + ratio_difference for x in colour]
         max_colour_value = max(uncapped_colour_list)
         if max_colour_value > 1:
             capped_colour_list = [x / max_colour_value for x in uncapped_colour_list]
@@ -669,7 +685,12 @@ class ConcentricShapes(ColourWidget):
     def set_secondary_colours(self, wid, colour):
 
         if not colour and self.shape_colour_list:
-            self.master_colour = self.shape_colour_list[0]
+            self.master_colour = self.inner_shape
+
+        if not self.shape_list:
+            print('BAD', self.shape_list)
+        else:
+            print('GOOD')
 
         if colour and self.shape_list:
 
@@ -685,9 +706,7 @@ class ConcentricShapes(ColourWidget):
                 # else:
                 #     colour_size_hint = 1
 
-
                 auto_colour = self.set_colour_by_size_hint(base_colour, colour_size_hint, min_size_hint)
-
 
                 shape['shape_colour'] = auto_colour
 
@@ -695,13 +714,25 @@ class ConcentricShapes(ColourWidget):
 
             #self.get_shape_dictionary()
 
+            # if len(shape_dictionary) > 2:
+            #     n = 1
+            # else:
+            #     n = 0
+
+            n = 0
+
             if self.needs_text_colour:
             #if True:
                 #  not my favourite bit of code, but as colour property will fill in as [1, 1, 1, 1], what else can i do
-                self.text_colour = shape_dictionary[0]['shape_colour']
+                self.text_colour = shape_dictionary[n]['shape_colour']
             if self.needs_trim_colour:
             #if True:
-                self.trim_colour = shape_dictionary[0]['shape_colour']
+                self.trim_colour = shape_dictionary[n]['shape_colour']
+
+                self.set_image_colour(self, self.trim_colour)
+
+                print('trim!!', self.trim_colour)
+
                 #self.set_image_colour(self.trim_colour)
 
         # for shape, colour in zip(self.shape_list, self.shape_colour_list):

@@ -62,6 +62,8 @@ class ConcentricPopup(ModalView, ColourWidget):
         # self.separator_color = [0, 0, 0, 0]
         # self.separator_height = 0
 
+        self.background_rectangle_colour_instruction = None
+
         super(ConcentricPopup, self).__init__(**kwargs)
 
         self.anchor_y = 'top'
@@ -97,7 +99,8 @@ class ConcentricPopup(ModalView, ColourWidget):
         self.content = boxlayout
 
     def on_background_colour(self, wid, colour):
-        self.background_rectangle_colour_instruction.rgba = colour
+        if self.background_rectangle_colour_instruction:
+            self.background_rectangle_colour_instruction.rgba = colour
 
     def on_size(self, wid, size):
         if self.background_rectangle:

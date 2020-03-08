@@ -201,35 +201,41 @@ class ColourWidget(Widget, ColourProperties):
     needs_trim_colour = BooleanProperty(True)
     needs_text_colour = BooleanProperty(True)
 
-
-
     def __init__(self, **kwargs):
 
         super(ColourWidget, self).__init__(**kwargs)
 
         #self.do_colour_scheme(self.colour_scheme)
 
-        Clock.schedule_once(self.do_colour_scheme, -1)
+        #self.do_colour_scheme(None, self.colour_scheme)
 
-    def do_colour_scheme(self, *args):
+        #print('55555555555555555555555555555555', self.use_master_colour, self.master_colour, self.colour_scheme)
 
-        if self.colour_scheme == 'master':
+        #  master colour is set in here
+        self.do_colour_scheme(None, self.colour_scheme)
+
+        #Clock.schedule_once(partial(self.do_colour_scheme, None, self.colour_scheme))
+
+        self.bind(colour_scheme=self.do_colour_scheme)
+
+    def do_colour_scheme(self, wid, colour_scheme, *args):
+
+        if colour_scheme == 'master':
             pass
-        elif self.colour_scheme == 'root':
+        elif colour_scheme == 'root':
             root = None
             #  fixme come back to this to work out what exactly you want
             self.set_colours_from_widget(widget=root)
-        elif self.colour_scheme == 'screen':
+        elif colour_scheme == 'screen':
             screen = self.get_screen()
 
-
             self.set_colours_from_widget(widget=screen)
-        elif self.colour_scheme == 'app':
+        elif colour_scheme == 'app':
 
             app = App.get_running_app()
 
             self.set_colours_from_widget(widget=app)
-        elif self.colour_scheme == 'previous':
+        elif colour_scheme == 'previous':
             widget = self.get_previous(self)
             self.set_colours_from_widget(widget=widget)
 
@@ -268,10 +274,14 @@ class ColourWidget(Widget, ColourProperties):
             #  sometimes you just can't get what you want
             return
 
+        print('ggggggggggggg', self.pseudo_bind_master_colour_attribute)
+
         self.foreground_colour = widget.foreground_colour
         self.background_colour = widget.background_colour
         self.trim_colour = widget.trim_colour
         self.text_colour = widget.text_colour
+
+        print('ffffffffffffff', self.pseudo_bind_master_colour_attribute, self.foreground_colour)
 
         if self.pseudo_bind_master_colour_attribute:
             colour = getattr(self, self.pseudo_bind_master_colour_attribute)
@@ -283,6 +293,18 @@ class ColourWidget(Widget, ColourProperties):
                   trim_colour=partial(self.pseudo_bind_master_colour, 'trim_colour'),
                   text_colour=partial(self.pseudo_bind_master_colour, 'text_colour'),
                   )
+
+        # print('eeeeeeeeeeeeeeeeeeeeeeee', widget.foreground_colour)
+        #
+        # if self.pseudo_bind_master_colour_attribute == 'foreground_colour':
+        #     self.master_colour = self.foreground_colour
+        # elif self.pseudo_bind_master_colour_attribute == 'background_colour':
+        #     self.master_colour = self.background_colour
+        # elif self.pseudo_bind_master_colour_attribute == 'trim_colour':
+        #     self.master_colour = self.trim_colour
+        # elif self.pseudo_bind_master_colour_attribute == 'text_colour':
+        #     self.master_colour = self.text_colour
+
         # self.bind(foreground_colour=partial(self.pseudo_bind_master_text_colour, 'foreground_colour'),
         #           background_colour=partial(self.pseudo_bind_master_text_colour, 'background_colour'),
         #           trim_colour=partial(self.pseudo_bind_master_text_colour, 'trim_colour'),

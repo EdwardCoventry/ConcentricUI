@@ -4,25 +4,26 @@
 
 all__ = ('ConcentricButton',)
 
+from kivy.app import App
 from kivy.clock import Clock
 from kivy.graphics import Color
-from kivy.utils import rgba
-from kivy.properties import BooleanProperty, NumericProperty, ObjectProperty, ListProperty, VariableListProperty, StringProperty
+from kivy.properties import BooleanProperty, NumericProperty, ObjectProperty, ListProperty, VariableListProperty, StringProperty, ColorProperty
+from kivy.uix import textinput
 from kivy.uix.textinput import TextInputCutCopyPaste, TextInput
+from kivy.utils import platform
+from kivy.core.window import Window
+from kivy.core.text import Label
 
 from ConcentricUI.behaviours.concentricshapes import ConcentricShapes
 from ConcentricUI.roundedrectangle.roundedrectangle import RoundedRec as RoundedRectangle
-
-from kivy.uix.behaviors.focus import FocusBehavior
-from kivy.base import EventLoop
+from ConcentricUI.oblong.concentricoblongs import ConcentricOblongs
+from ConcentricUI.oblong.oblong import Oblong
 
 class RoundedRectangleTextInputCutCopyPaste(TextInputCutCopyPaste):
     def __init__(self, **kwargs):
         super(RoundedRectangleTextInputCutCopyPaste, self).__init__(**kwargs)
 
-
-from ConcentricUI.oblong.concentricoblongs import ConcentricOblongs
-from ConcentricUI.oblong.oblong import Oblong
+textinput.TextInputCutCopyPaste = RoundedRectangleTextInputCutCopyPaste
 
 
 class OblongCursor(ConcentricOblongs):
@@ -36,14 +37,16 @@ class OblongCursor(ConcentricOblongs):
         # self.shape_size_hint_list = [1]
         # self.shape_colour_list = [[0,1,1,1]]
 
-
-from kivy.uix import textinput
-
-textinput.TextInputCutCopyPaste = RoundedRectangleTextInputCutCopyPaste
-
+if platform == 'android':
+    from android import get_keyboard_height
+else:
+    def get_keyboard_height():
+        return (498/1280) * Window.height
 
 class ConcentricTextInput(ConcentricShapes, TextInput):
     # keyboard_mode = 'auto'
+
+    bold = BooleanProperty(False)
 
     keyboard_type = StringProperty('')
 
@@ -52,6 +55,37 @@ class ConcentricTextInput(ConcentricShapes, TextInput):
     font_size_hint = NumericProperty(1)
 
     needs_text_colour = False
+
+    def _ensure_keyboard(self):
+        # if self._keyboard is None:
+        #     self._requested_keyboard = True
+        #     keyboard = self._keyboard =\
+        #         EventLoop.window.request_keyboard(
+        #             self._keyboard_released, self, input_type=self.input_type)
+        #     keyboards = FocusBehavior._keyboards
+        #     if keyboard not in keyboards:
+        #         keyboards[keyboard] = None
+        App.get_running_app().last_input_type = self.input_type
+        super(ConcentricTextInput, self)._ensure_keyboard()
+        self.poll_keyboard_height()
+
+    def _keyboard_released(self):
+        self.focus = False
+        self.clear_keyboard_height()
+
+    def poll_keyboard_height(self, *args):
+        if not self.keyboard_height_polling:
+            self.keyboard_height_polling = Clock.schedule_interval(self.set_keyboard_height, 0.05)
+
+    def set_keyboard_height(self, *args):
+        self.keyboard_height = get_keyboard_height()
+        print('keyyyyyyyyyyy!!!!', self.keyboard_height)
+        if self.keyboard_height:
+            self.keyboard_height_polling.cancel()
+            self.keyboard_height_polling = None
+
+    def clear_keyboard_height(self, *args):
+        self.keyboard_height = 0
 
     def update(self, *args):
         pass
@@ -217,10 +251,16 @@ class ConcentricTextInput(ConcentricShapes, TextInput):
         if self.oblong_cursor:
             self.oblong_cursor_colour_instruction.rgba = self.cursor_color
 
-    cursor_color = ListProperty([1, 1, 1, 0.5])
-    selection_color = ListProperty([0.8, 0.8, 0.8, 0.4])
+    cursor_color = ColorProperty('#bd9d8c')
+    selection_color = ColorProperty('#bd9d8c64')
+
+    keyboard_height = NumericProperty()
 
     def __init__(self, **kwargs):
+
+        self.keyboard_height_polling = None
+
+        self.bind(keyboard_height=App.get_running_app().set_keyboard_height)
 
         self.background_color = [0, 0, 0, 0]
         self.background_normal = ''
@@ -264,13 +304,14 @@ class ConcentricTextInput(ConcentricShapes, TextInput):
         #self.bind(text=self.set_font_size)
 
     def set_text_colour(self, wid, colour):
-        print('COLOORURURURR', [x*255 for x in colour])
-        self.text_colour_instruction = Color(colour)
-        self.text_colour = colour
-        self.color = Color(colour)
-
-        with self.canvas.before:
-            self.text_colour_instruction = Color(*self.text_colour)
+        self.foreground_color = colour
+        # print('COLOORURURURR', [x*255 for x in colour])
+        # self.text_colour_instruction = Color(colour)
+        # self.text_colour = colour
+        # self.color = Color(colour)
+        #
+        # with self.canvas.before:
+        #     self.text_colour_instruction = Color(*self.text_colour)
 
 
 
@@ -339,3 +380,23 @@ class ConcentricTextInput(ConcentricShapes, TextInput):
     #         keyboards = FocusBehavior._keyboards
     #         if keyboard not in keyboards:
     #             keyboards[keyboard] = None
+
+    def _get_line_options(self):
+        # Get or create line options, to be used for Label creation
+        if self._line_options is None:
+            self._line_options = kw = {
+                'bold': self.bold,
+                #'foreground_color': self.text_colour,
+                'font_size': self.font_size,
+                'font_name': self.font_name,
+                'font_context': self.font_context,
+                'font_family': self.font_family,
+                'text_language': self.text_language,
+                'base_direction': self.base_direction,
+                'anchor_x': 'left',
+                'anchor_y': 'top',
+                'padding_x': 0,
+                'padding_y': 0,
+                'padding': (0, 0)}
+            self._label_cached = Label(**kw)
+        return self._line_options

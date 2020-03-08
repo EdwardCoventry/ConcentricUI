@@ -15,6 +15,7 @@ class Text(ColourWidget, Label):
         self.valign = 'center'
 
         self.colour_scheme = 'app'
+        self.set_colour(self, self.text_colour)
         self.bind(size=self.set_size, text_colour=self.set_colour)
 
     def set_size(self, wid, size):

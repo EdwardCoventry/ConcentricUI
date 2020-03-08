@@ -75,18 +75,21 @@ class ConcentricOblongs(ConcentricShapes):
             """ This is for if you want a placeholder. It's a blank widget """
             pin_widget = Widget()
         elif type(pin) == str:
-            pin_widget = Text(text=pin, color=self.text_colour, font_ratio=self.font_ratio)
+            pin_widget = Text(text=pin, text_colour=self.text_colour, font_ratio=self.font_ratio)
             self.bind(text_colour=pin_widget.set_colour)
         elif type(pin) == int:
-            pin_widget = Text(text=str(pin), color=self.text_colour, font_ratio=self.font_ratio)
+            pin_widget = Text(text=str(pin), text_colour=self.text_colour, font_ratio=self.font_ratio)
             self.bind(text_colour=pin_widget.set_colour)
         elif type(pin) == float:
-            pin_widget = Text(text="{0:.3g}".format(pin), color=self.text_colour, font_ratio=self.font_ratio)
+            pin_widget = Text(text="{0:.3g}".format(pin), text_colour=self.text_colour, font_ratio=self.font_ratio)
             self.bind(text_colour=pin_widget.set_colour)
         elif issubclass(type(pin), ConcentricShapes):
             pin_widget = pin_item
         else:
             pin_widget = pin
+
+        #print('oooooooooooooooooooooooooooo', pin_widget, self.text_colour)
+
         pin_widget.id = pin_position
 
         # if (hasattr(pin_widget, 'master_colour') and not pin_widget.master_colour) or (hasattr(pin_widget, 'colour_scheme') and pin_widget.colour_scheme):
