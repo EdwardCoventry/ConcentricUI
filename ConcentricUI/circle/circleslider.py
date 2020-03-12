@@ -5,7 +5,7 @@ all__ = ('CircleSlider',)
 from functools import partial
 
 from kivy.clock import Clock
-from kivy.properties import NumericProperty, BooleanProperty, ObjectProperty, AliasProperty
+from kivy.properties import BooleanProperty, ObjectProperty, NumericProperty, StringProperty, AliasProperty
 from kivy.uix.slider import Slider
 
 from ConcentricUI.circle.circlelabel import CircleLabel
@@ -19,22 +19,25 @@ class CircleSlider(Slider, ConcentricCircles):
     decimal_places = NumericProperty(0)
     sig_figs = NumericProperty(None)
 
+    display_value_formatting = StringProperty()
+
     def get_formatted_value(self):
 
         #  fixme add sig figs please
 
-        if self.integers:
-            return str(int(self.value))
 
-        if self.value:
-            # if self.sig_figs and self.decimal_places:
-            #     formatting = "{" + ":{}.{}f".format(self.sig_figs, self.decimal_places) + "}"
-            # elif self.sig_figs and not self.decimal_places:
-            #     formatting = "{" + ":{}.{}f".format(self.sig_figs, self.decimal_places) + "}"
-            # return formatting.format(self.value)
-            return "{:.{}f}".format(self.value, self.decimal_places)
-        else:
+        if self.value is None:
             return ''
+        elif self.integers:
+            value = str(int(self.value))
+        elif self.decimal_places is not None:
+            value = "{:.{}f}".format(self.value, self.decimal_places)
+        else:
+            value = self.value
+
+        if self.display_value_formatting:
+            print('>>>>>', self.display_value_formatting.format(value))
+            return self.display_value_formatting.format(value)
 
     formatted_value = AliasProperty(get_formatted_value, bind=['value', 'decimal_places', 'sig_figs'])
 
@@ -156,9 +159,9 @@ class CircleSlider(Slider, ConcentricCircles):
         print('got here!!!!!!!!!!!!!!!')
         self.set_slider_bar_colour(wid, colour)
 
-    def update_shape_list_size(self, *args):
+    def update_shape_list_size(self, wid, size):
         # self.circle_label.diamter = min(self.size)
-        super(CircleSlider, self).update_shape_list_size()
+        super(CircleSlider, self).update_shape_list_size(wid, size)
 
     def update_shape_list_pos(self, *args):
 

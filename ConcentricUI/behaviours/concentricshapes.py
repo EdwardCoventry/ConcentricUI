@@ -146,9 +146,6 @@ class ConcentricShapes(ColourWidget):
 
         super(ConcentricShapes, self).__init__(**kwargs)
 
-        print('mmmmmmmmaster', self.master_colour)
-
-
         if 'shape_dictionary' in kwargs:
             shape_dictionary = kwargs.pop('shape_dictionary')
             self.shape_dictionary = shape_dictionary
@@ -206,8 +203,11 @@ class ConcentricShapes(ColourWidget):
 
         # if self.trim is True:
 
+
         if issubclass(self.__class__, ConcentricFontScaling):
-            Clock.schedule_once(self.set_font_size, 0)
+            self.set_font_size()
+
+            #Clock.schedule_once(self.set_font_size, 0)
 
 
     def draw_shapes(self):
@@ -250,7 +250,6 @@ class ConcentricShapes(ColourWidget):
         if self:
             if not self.image:
 
-                print('ttttttttttttttt', self.trim_colour)
 
                 self.image = Image(source=source, color=self.trim_colour)
 
@@ -263,9 +262,6 @@ class ConcentricShapes(ColourWidget):
                 self.add_widget(self.image)
             else:
                 self.image.source = source
-
-        print('doing it!!!', source)
-
 
     def set_image_size_and_pos(self, *args):
         if self.image:
@@ -379,6 +375,7 @@ class ConcentricShapes(ColourWidget):
     def get_inner_shape_height(self, *args):
 
         if not self.shape_list:
+            print('no shape list....... :(')
             return None
 
         return self.shape_list[-1].size[1]
@@ -687,11 +684,6 @@ class ConcentricShapes(ColourWidget):
         if not colour and self.shape_colour_list:
             self.master_colour = self.inner_shape
 
-        if not self.shape_list:
-            print('BAD', self.shape_list)
-        else:
-            print('GOOD')
-
         if colour and self.shape_list:
 
             if type(colour) == str:
@@ -731,9 +723,10 @@ class ConcentricShapes(ColourWidget):
 
                 self.set_image_colour(self, self.trim_colour)
 
-                print('trim!!', self.trim_colour)
-
                 #self.set_image_colour(self.trim_colour)
+            # else:
+            #     self.shape_dictionary[n]['shape_colour'] = self.trim_colour
+            #     print('setting it!!!!!!!!!!!!!!!!!!!!! asdfasdfsadf')
 
         # for shape, colour in zip(self.shape_list, self.shape_colour_list):
         #     shape.update_colour(colour)

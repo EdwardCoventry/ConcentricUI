@@ -3,7 +3,7 @@
 all__ = ('DoubleCircleSlider',)
 
 from kivy.clock import Clock
-from kivy.properties import BooleanProperty, NumericProperty, ObjectProperty, ReferenceListProperty
+from kivy.properties import BooleanProperty, ObjectProperty, NumericProperty, StringProperty, ReferenceListProperty
 
 from ConcentricUI.behaviours.concentricshapes import ConcentricShapes
 from ConcentricUI.circle.circleslider import CircleSlider
@@ -15,12 +15,14 @@ class DoubleCircleSlider(ConcentricShapes):
     #  fixme its width away from each other
 
     integers = BooleanProperty(False)
+    decimal_places = NumericProperty()
 
     #  not sure how implemented this is
     update_slowdown = NumericProperty()
 
     # not yet implemented
     space_values = NumericProperty()
+
 
     min = CircleSlider.min
     max = CircleSlider.max
@@ -30,6 +32,8 @@ class DoubleCircleSlider(ConcentricShapes):
     step = CircleSlider.step
     display_value_toggle = CircleSlider.display_value_toggle
     slider_bar_toggle = CircleSlider.slider_bar_toggle
+
+    display_value_formatting = StringProperty()
 
     min_slider = ObjectProperty()
     max_slider = ObjectProperty()
@@ -75,6 +79,7 @@ class DoubleCircleSlider(ConcentricShapes):
 
         min_kwargs = {'value': self.min_value,
                       'integers': self.integers,
+                      'decimal_places': self.decimal_places,
                       'update_slowdown': self.update_slowdown,
                       'min': self.min,
                       'max': self.max,
@@ -90,11 +95,13 @@ class DoubleCircleSlider(ConcentricShapes):
                       'master_colour': self.master_colour,
                       'shape_dictionary': self.shape_dictionary,
                       'display_value_toggle': self.display_value_toggle,
+                      'display_value_formatting': self.display_value_formatting,
                       'slider_bar_toggle': False,
                       'draw_shape_toggle': False}
 
         max_kwargs = {'value': self.max_value,
                       'integers': self.integers,
+                      'decimal_places': self.decimal_places,
                       'update_slowdown': self.update_slowdown,
                       'min': self.min,
                       'max': self.max,
@@ -110,15 +117,25 @@ class DoubleCircleSlider(ConcentricShapes):
                       'master_colour': self.master_colour,
                       'shape_dictionary': self.shape_dictionary,
                       'display_value_toggle': self.display_value_toggle,
+                      'display_value_formatting': self.display_value_formatting,
                       'slider_bar_toggle': False,
                       'draw_shape_toggle': False}
 
         if self.slider_bar_toggle:
+
+            print('^^^^^^^^^^^^^')
+
             """ you can change do shape_dictionary=self.shape_dictionary if you want this little bar to be concentric
                 but im pretty sure it looks awful so im not even going to provide an option for that """
-            self.slider_bar = ConcentricOblongs(size=self.size, pos=self.pos, orientation=self.orientation,
-                                                master_colour=self.master_colour, colour_scheme=self.colour_scheme,
-                                                allow_concentric=False)
+            # self.slider_bar = ConcentricOblongs(size=self.size, pos=self.pos, orientation=self.orientation,
+            #                                     master_colour=self.master_colour, colour_scheme=self.colour_scheme,
+            #                                     allow_concentric=False)
+            self.slider_bar = ConcentricOblongs(size=self.size,
+                                                pos=self.pos,
+                                                orientation=self.orientation,
+                                                master_colour=self.master_colour,
+                                                colour_scheme=self.colour_scheme,
+                                                allow_concentric=True)
             self.add_widget(self.slider_bar)
 
             self.bind(size=self.set_slider_bar_size_and_pos)
@@ -142,6 +159,9 @@ class DoubleCircleSlider(ConcentricShapes):
         self.set_slider_bar_colour(wid, colour)
 
     def set_slider_bar_colour(self, wid, colour):
+
+        print('yyyyyyyyyyyyyyyyyyyy', self.slider_bar)
+
         if self.slider_bar:
             self.slider_bar.master_colour = colour
 

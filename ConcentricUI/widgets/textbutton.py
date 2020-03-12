@@ -3,6 +3,7 @@ from kivy.uix.button import Button
 from kivy.uix.button import Label
 
 from ConcentricUI.colourscheme.colourwidget import ColourWidget
+from ConcentricUI.behaviours.concentricshapes import ConcentricShapes
 
 
 class Text(ColourWidget, Label):
@@ -28,6 +29,8 @@ class Text(ColourWidget, Label):
 
     def set_text(self, text, *args):
         self.text = text
+
+
 
 class TextButton(Text, Button):
 

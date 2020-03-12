@@ -44,6 +44,9 @@ class Storage(object):
             store, backup_store = self.get_store_with_backup(store_name)
             self.store_references[store_name] = store
 
+
+            print('STORE!!', store, len(store), len(dict(store)))
+
         # if not store.count():
         #     print("its empty!")
         #     if store_name == 'quick_save':
@@ -54,7 +57,6 @@ class Storage(object):
 
 
     def get_store(self, store_name, subfolder='stores', as_backup=False, from_backup=False):
-    
     
         print('GET STORE NAME', store_name, subfolder)
     
@@ -96,6 +98,7 @@ class Storage(object):
             #  if as_backup is specified then backup from the specified store
             return BackupDictStore(store_path, as_backup)
         else:  # if not as backup...., just open a normal store
+            #print('paththhhhhhhhhhhhhh', store_path)
             return ExtendedDictStore(store_path)
     
     

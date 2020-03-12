@@ -130,6 +130,8 @@ class ConcentricTextInput(ConcentricShapes, TextInput):
         # self.update_padding()
         #
         # Clock.schedule_once(self.texture_size_callback)
+        if not self.inner_height:
+            return
 
         self.font_size = self.inner_height * self.font_size_hint
 
@@ -301,6 +303,9 @@ class ConcentricTextInput(ConcentricShapes, TextInput):
         self.bind(_cursor_blink=self.oblong_cursor_blink)
         self.bind(focus=self.hide_oblong_cursor_on_loose_focus)
 
+        self.foreground_color = self.text_colour
+
+        self.bind(inner_size=self.set_font_size)
 
         #self.bind(text=self.set_font_size)
 

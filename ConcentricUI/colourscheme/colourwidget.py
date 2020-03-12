@@ -274,14 +274,10 @@ class ColourWidget(Widget, ColourProperties):
             #  sometimes you just can't get what you want
             return
 
-        print('ggggggggggggg', self.pseudo_bind_master_colour_attribute)
-
         self.foreground_colour = widget.foreground_colour
         self.background_colour = widget.background_colour
         self.trim_colour = widget.trim_colour
         self.text_colour = widget.text_colour
-
-        print('ffffffffffffff', self.pseudo_bind_master_colour_attribute, self.foreground_colour)
 
         if self.pseudo_bind_master_colour_attribute:
             colour = getattr(self, self.pseudo_bind_master_colour_attribute)
