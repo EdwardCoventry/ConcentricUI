@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='ConcentricUI',
-    version='0.1.4.0',
+    version='0.1.4.1',
     packages=['ConcentricUI',
               'ConcentricUI.appcontroll',
               'ConcentricUI.behaviours',
@@ -18,7 +18,8 @@ setup(
               'ConcentricUI.test',
               'ConcentricUI.textures',
               'ConcentricUI.utilities',
-              'ConcentricUI.layouts'],
+              'ConcentricUI.layouts',
+              'ConcentricUI.widgets'],
 
     url='https://github.com/EdwardCoventry/ConcentricUI/',
     license='',
