@@ -17,69 +17,45 @@
         <counts>
           <entry key="project.closed" value="10" />
           <entry key="project.open.time.0" value="3" />
-          <entry key="project.open.time.1" value="3" />
+          <entry key="project.open.time.1" value="4" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.37" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.7" value="2" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.opened" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="50" />
+          <entry key="py" value="52" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="50" />
+          <entry key="Python" value="52" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1437" />
+          <entry key="py" value="1550" />
           <entry key="txt" value="85" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="85" />
-          <entry key="Python" value="1437" />
+          <entry key="Python" value="1550" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ConcentricUI/widgets/topbar.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="26" column="25" lean-forward="true" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ConcentricUI/colourscheme/colourscreen.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="42" column="30" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
-              <folding>
-                <element signature="e#55#90#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ConcentricUI/behaviours/concentrictextinput.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3349">
+            <state relative-caret-position="3247">
               <caret line="204" column="91" selection-start-line="204" selection-start-column="91" selection-end-line="204" selection-end-column="91" />
-              <folding>
-                <element signature="e#117#145#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -87,8 +63,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ConcentricUI/behaviours/concentricfontscaling.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="65" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="65" />
+            <state relative-caret-position="204">
+              <caret line="14" column="61" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="61" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -100,7 +76,7 @@
         <entry file="file://$PROJECT_DIR$/ConcentricUI/behaviours/concentricfontscaling2.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
-              <caret line="16" column="11" lean-forward="true" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+              <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
               <folding>
                 <element signature="e#1#24#0" expanded="true" />
                 <marker date="1581950543316" expanded="true" signature="150:151" ph="..." />
@@ -110,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="42" lean-forward="true" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
+            <state relative-caret-position="459">
+              <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -123,7 +99,7 @@
         <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/kivy/uix/behaviors/togglebutton.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="714">
-              <caret line="42" column="3" lean-forward="true" selection-start-line="42" selection-start-column="3" selection-end-line="42" selection-end-column="3" />
+              <caret line="42" column="3" selection-start-line="42" selection-start-column="3" selection-end-line="42" selection-end-column="3" />
               <folding>
                 <element signature="e#1366#1425#0" expanded="true" />
               </folding>
@@ -135,7 +111,19 @@
         <entry file="file://$PROJECT_DIR$/ConcentricUI/widgets/fullscreenpopup.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="5" column="44" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
+              <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+              <folding>
+                <element signature="e#58#82#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ConcentricUI/bt/paireddevicespopup.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="363">
+              <caret line="71" column="12" lean-forward="true" selection-start-line="71" selection-start-column="12" selection-end-line="71" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -144,7 +132,7 @@
         <entry file="file://$PROJECT_DIR$/ConcentricUI/behaviours/concentrictextinput_bu.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1717">
-              <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
+              <caret line="107" selection-start-line="107" selection-end-line="107" />
             </state>
           </provider>
         </entry>
@@ -152,8 +140,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ConcentricUI/widgets/popup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1071">
-              <caret line="71" column="9" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
+            <state relative-caret-position="287">
+              <caret line="93" column="102" lean-forward="true" selection-start-line="93" selection-start-column="102" selection-end-line="93" selection-end-column="102" />
+              <folding>
+                <element signature="e#92#116#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -169,9 +160,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>update</find>
-      <find>do_image_source</find>
-      <find>textures/buttons/</find>
       <find>textures</find>
       <find>get_inner_y_at_x</find>
       <find>481</find>
@@ -199,6 +187,9 @@
       <find>FullScr</find>
       <find>T</find>
       <find>angle_</find>
+      <find>FullScreenPopup</find>
+      <find>save_and_close</find>
+      <find>plyer</find>
     </findStrings>
     <replaceStrings>
       <replace>from ConcentricUI.</replace>
@@ -238,15 +229,17 @@
         <option value="$PROJECT_DIR$/ConcentricUI/behaviours/concentrictextinput.py" />
         <option value="$PROJECT_DIR$/ConcentricUI/behaviours/concentricfontscaling.py" />
         <option value="$PROJECT_DIR$/ConcentricUI/colourscheme/colourscreen.py" />
-        <option value="$PROJECT_DIR$/ConcentricUI/widgets/popup.py" />
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/ConcentricUI/widgets/topbar.py" />
+        <option value="$PROJECT_DIR$/build/lib/ConcentricUI/bt/paireddevicespopup.py" />
+        <option value="$PROJECT_DIR$/ConcentricUI/bt/paireddevicespopup.py" />
+        <option value="$PROJECT_DIR$/ConcentricUI/widgets/popup.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-209" />
-    <option name="y" value="330" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1096" />
   </component>
@@ -421,9 +414,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12223393" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12223393" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -524,9 +516,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3791">
           <caret line="233" column="58" selection-start-line="233" selection-start-column="58" selection-end-line="233" selection-end-column="58" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -534,9 +523,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="23" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -558,9 +544,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-          <folding>
-            <element signature="e#55#124#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -568,9 +551,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -634,9 +614,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="546">
           <caret line="302" column="18" selection-start-line="302" selection-start-column="18" selection-end-line="302" selection-end-column="18" />
-          <folding>
-            <element signature="e#59#87#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -651,9 +628,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="644">
           <caret line="39" column="42" lean-forward="true" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -666,8 +640,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ConcentricUI/widgets/topbar.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="26" column="25" lean-forward="true" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+        <state relative-caret-position="221">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
     </entry>
@@ -683,18 +657,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ConcentricUI/behaviours/concentrictextinput.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3349">
+        <state relative-caret-position="3247">
           <caret line="204" column="91" selection-start-line="204" selection-start-column="91" selection-end-line="204" selection-end-column="91" />
-          <folding>
-            <element signature="e#117#145#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ConcentricUI/behaviours/concentricfontscaling.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="65" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="65" />
+        <state relative-caret-position="204">
+          <caret line="14" column="61" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="61" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
@@ -704,7 +675,7 @@
     <entry file="file://$PROJECT_DIR$/ConcentricUI/behaviours/concentricfontscaling2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
-          <caret line="16" column="11" lean-forward="true" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+          <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
           <folding>
             <element signature="e#1#24#0" expanded="true" />
             <marker date="1581950543316" expanded="true" signature="150:151" ph="..." />
@@ -713,41 +684,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="42" lean-forward="true" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/kivy/uix/behaviors/togglebutton.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
-          <caret line="42" column="3" lean-forward="true" selection-start-line="42" selection-start-column="3" selection-end-line="42" selection-end-column="3" />
+          <caret line="42" column="3" selection-start-line="42" selection-start-column="3" selection-end-line="42" selection-end-column="3" />
           <folding>
             <element signature="e#1366#1425#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ConcentricUI/widgets/fullscreenpopup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="44" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ConcentricUI/behaviours/concentrictextinput_bu.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1717">
-          <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
+          <caret line="107" selection-start-line="107" selection-end-line="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/lib/ConcentricUI/bt/paireddevicespopup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="116" column="38" lean-forward="true" selection-start-line="116" selection-start-column="38" selection-end-line="116" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ConcentricUI/bt/paireddevicespopup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="71" column="12" lean-forward="true" selection-start-line="71" selection-start-column="12" selection-end-line="71" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ConcentricUI/widgets/fullscreenpopup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+          <folding>
+            <element signature="e#58#82#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ConcentricUI/widgets/popup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="71" column="9" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
+        <state relative-caret-position="287">
+          <caret line="93" column="102" lean-forward="true" selection-start-line="93" selection-start-column="102" selection-end-line="93" selection-end-column="102" />
+          <folding>
+            <element signature="e#92#116#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
         </state>
       </provider>
     </entry>

@@ -1,6 +1,7 @@
 from kivy.properties import NumericProperty
 from kivy.uix.button import Button
 from kivy.uix.button import Label
+from kivy.uix.behaviors.togglebutton import ToggleButtonBehavior
 
 from ConcentricUI.colourscheme.colourwidget import ColourWidget
 from ConcentricUI.behaviours.concentricshapes import ConcentricShapes
@@ -30,8 +31,6 @@ class Text(ColourWidget, Label):
     def set_text(self, text, *args):
         self.text = text
 
-
-
 class TextButton(Text, Button):
 
     def __init__(self, **kwargs):
@@ -42,3 +41,8 @@ class TextButton(Text, Button):
         self.background_down = ''
         self.background_disabled_normal = ''
         self.background_disabled_down = ''
+
+class TextToggleButton(TextButton, ToggleButtonBehavior):
+
+    def __init__(self, **kwargs):
+        super(TextToggleButton, self).__init__(**kwargs)

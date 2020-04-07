@@ -1,6 +1,6 @@
 from kivy import platform
 
-from utilities.runinthread import run_in_thread
+from ConcentricUI.utilities.runinthread import run_in_thread
 
 if platform == 'android':
     from jnius import autoclass

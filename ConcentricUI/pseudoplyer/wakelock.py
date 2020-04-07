@@ -56,3 +56,5 @@ class WakeLock(object):
                 PythonActivity.mActivity.getWindow().clearFlags(Params.FLAG_KEEP_SCREEN_ON)
             except Exception as e:
                 print('COULD NOT SET WAKE LOCK OFF:', e)
+
+wakelock = WakeLock()

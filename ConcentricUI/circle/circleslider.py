@@ -16,15 +16,16 @@ from ConcentricUI.oblong.concentricoblongs import ConcentricOblongs
 class CircleSlider(Slider, ConcentricCircles):
     integers = BooleanProperty(False)
 
-    decimal_places = NumericProperty(0)
+    decimal_places = NumericProperty(None)
     sig_figs = NumericProperty(None)
 
-    display_value_formatting = StringProperty()
+    display_value_formatting = StringProperty("{}")
 
     def get_formatted_value(self):
 
         #  fixme add sig figs please
 
+        print('@@@@@@yyyyyyyyyyyyyyyyyyy', self.decimal_places)
 
         if self.value is None:
             return ''
@@ -42,7 +43,7 @@ class CircleSlider(Slider, ConcentricCircles):
     formatted_value = AliasProperty(get_formatted_value, bind=['value', 'decimal_places', 'sig_figs'])
 
     circle_label = ObjectProperty()
-    display_value_toggle = BooleanProperty(False)
+    display_value_toggle = BooleanProperty(True)
 
     #  0 is instant
     update_slowdown = NumericProperty(0)
@@ -63,7 +64,13 @@ class CircleSlider(Slider, ConcentricCircles):
         if 'slider_bar_toggle' in kwargs:
             self.slider_bar_toggle = kwargs.pop('slider_bar_toggle')
 
+        print('b44444444444444444444444444', self.decimal_places)
+
         super(CircleSlider, self).__init__(**kwargs)
+
+        print('b5555555555555555555555555', self.decimal_places)
+
+
         # self.value = kwargs.pop('value')
         # self.sensitivity = kwargs.pop('sensitivity')
 
@@ -79,11 +86,17 @@ class CircleSlider(Slider, ConcentricCircles):
         self.background_width = 0
 
         if self.slider_bar_toggle:
+
+            print('iiiiiiiiiiiuuuuuu yeah yeah yeah i want it')
+
             """ you can change do shape_dictionary=self.shape_dictionary if you want this little bar to be concentric
                 but im pretty sure it looks awful so im not even going to provide an option for that """
-            self.slider_bar = ConcentricOblongs(size=self.size, pos=self.pos, orientation=self.orientation,
-                                                master_colour=self.master_colour, colour_scheme=self.colour_scheme,
-                                                allow_concentric=False)
+            self.slider_bar = ConcentricOblongs(size=self.size,
+                                                pos=self.pos,
+                                                orientation=self.orientation,
+                                                master_colour=self.master_colour,
+                                                colour_scheme=self.colour_scheme,
+                                                allow_concentric=True)
             self.add_widget(self.slider_bar)
             self.bind(size=self.set_slider_bar_size_and_pos)
             self.bind(pos=self.set_slider_bar_size_and_pos)
@@ -106,6 +119,10 @@ class CircleSlider(Slider, ConcentricCircles):
         self.bind(value_pos=self.update_shape_list_pos)
 
         self.bind_display_text()
+
+        print('fffffffffffffffffffffgfgfg', self.decimal_places)
+
+        self.get_formatted_value()
 
     def on_display_value_toggle(self, wid, bind_text_toggle):
         self.bind_display_text()

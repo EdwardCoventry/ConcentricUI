@@ -33,7 +33,7 @@ class DoubleCircleSlider(ConcentricShapes):
     display_value_toggle = CircleSlider.display_value_toggle
     slider_bar_toggle = CircleSlider.slider_bar_toggle
 
-    display_value_formatting = StringProperty()
+    display_value_formatting = CircleSlider.display_value_formatting
 
     min_slider = ObjectProperty()
     max_slider = ObjectProperty()

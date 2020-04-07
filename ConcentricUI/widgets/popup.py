@@ -2,6 +2,9 @@
 
 all__ = ('ConcentricPopup', 'RoundedRectangleConcentricPopup')
 
+from kivy.app import App
+from kivy import platform
+from kivy.core.window import Window
 from kivy.graphics import Color, Rectangle
 from kivy.properties import ObjectProperty
 from kivy.uix.boxlayout import BoxLayout
@@ -73,8 +76,9 @@ class ConcentricPopup(ModalView, ColourWidget):
         #self.background_color = App.get_running_app.background_colour
         #
         # self.background_colour = (1,0,1,1)
-        with self.canvas.before:
-            self.background_rectangle_colour_instruction = Color(*self.background_colour)
+        with self.canvas:
+            print('@@@@@@@@@@@@@@@@@@@@++++++++++>>>>>>>>', App.get_running_app().background_colour)
+            self.background_rectangle_colour_instruction = Color(*App.get_running_app().background_colour)
             self.background_rectangle = Rectangle()
 
         popup_boxlayout = BoxLayout(orientation='vertical')
@@ -98,11 +102,22 @@ class ConcentricPopup(ModalView, ColourWidget):
         popup_boxlayout.add_widget(boxlayout)
         self.content = boxlayout
 
-    def on_background_colour(self, wid, colour):
+        self.bind(size=self.set_background_size,
+                  background_colour=self.set_background_colour)
+
+        self.back_key = 27 if platform is 'android' else 269  # 269 = numpad subtract
+        Window.bind(on_keyboard=self._on_keyboard)
+
+    def _on_keyboard(self, widget, key, scancode, codepoint, modifiers, *args):
+        if key == self.back_key:  # 27 for esc
+            self.save_and_close()
+            #return True
+
+    def set_background_colour(self, wid, colour):
         if self.background_rectangle_colour_instruction:
             self.background_rectangle_colour_instruction.rgba = colour
 
-    def on_size(self, wid, size):
+    def set_background_size(self, wid, size):
         if self.background_rectangle:
             self.background_rectangle.size = size
 

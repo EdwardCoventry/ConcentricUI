@@ -254,8 +254,8 @@ class ConcentricTextInput(ConcentricShapes, TextInput):
         if self.oblong_cursor:
             self.oblong_cursor_colour_instruction.rgba = self.cursor_color
 
-    cursor_color = ColorProperty('#bd9d8c')
-    selection_color = ColorProperty('#bd9d8c64')
+    cursor_color = ColorProperty('#55555555')
+    selection_color = ColorProperty('#55555555')
 
     keyboard_height = NumericProperty()
 

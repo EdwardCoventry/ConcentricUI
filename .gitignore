@@ -63,3 +63,7 @@ target/
 .idea/workspace.xml
 *.pyc
 *.pyc
+*.pyc
+*.pyc
+ConcentricUI/appcontroll/__pycache__/screenmanager.cpython-37.pyc
+*.pyc

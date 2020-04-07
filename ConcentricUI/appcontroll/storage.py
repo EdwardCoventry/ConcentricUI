@@ -25,6 +25,8 @@ class BackupDictStore(ExtendedDictStore):
 
 class Storage(object):
 
+    store_initialisation_dictionary = {}
+
     def __init__(self):
 
         if App.get_running_app():
@@ -47,11 +49,10 @@ class Storage(object):
 
             print('STORE!!', store, len(store), len(dict(store)))
 
-        # if not store.count():
-        #     print("its empty!")
-        #     if store_name == 'quick_save':
-        #         #  set defaults
-        #         store['last'] = {'gps_location': (51.471667, -0.071861)}
+        if not store.count():
+            if store_name in self.store_initialisation_dictionary:
+                initialisation_function = self.store_initialisation_dictionary[store_name]
+                initialisation_function(store)
 
         return store
 

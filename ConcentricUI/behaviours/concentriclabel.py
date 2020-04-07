@@ -15,7 +15,8 @@ class ConcentricLabel(Label, ConcentricFontScaling):
         try:
             self.texture_update()
         except:
-            print('this will come back to bite me')
+            pass
+            #print('this will come back to bite me')
             #fixme
 
     def __init__(self, **kwargs):

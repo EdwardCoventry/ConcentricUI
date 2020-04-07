@@ -1,5 +1,5 @@
 from kivy.clock import Clock
-from kivy.properties import NumericProperty, ReferenceListProperty, AliasProperty
+from kivy.properties import BooleanProperty, NumericProperty, ReferenceListProperty, AliasProperty
 from kivy.uix.widget import Widget
 
 
@@ -7,6 +7,8 @@ class ConcentricFontScaling(Widget):
     font_size_hint = NumericProperty(0.7)
     inner_width, inner_height = NumericProperty(), NumericProperty()
     inner_size = ReferenceListProperty(inner_width, inner_height)
+
+    autoscaling = BooleanProperty(False)
 
     def __init__(self, **kwargs):
 
@@ -61,6 +63,11 @@ class ConcentricFontScaling(Widget):
     #     self.texture = l.texture
 
     def set_font_size(self, *args):
+
+        if not self.autoscaling:
+            self.font_size = self.height * self.font_size_hint
+            self.update()
+
 
         self.update()
 
