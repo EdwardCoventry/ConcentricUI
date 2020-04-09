@@ -204,7 +204,7 @@ class DoubleCircleSlider(ConcentricShapes):
         if not self.collide_point(*touch.pos):
             return False
 
-        pos_dimension = 0 if self.orientation is 'horizontal' else 1
+        pos_dimension = 0 if self.orientation == 'horizontal' else 1
 
         touch_distance_from_min_slider = abs(self.min_slider.value_pos[pos_dimension] - touch.pos[pos_dimension])
         touch_distance_from_max_slider = abs(self.max_slider.value_pos[pos_dimension] - touch.pos[pos_dimension])

@@ -42,6 +42,8 @@ class Oblong(VertexInstruction):
     def __init__(self, size=(100, 100), size_hint=1, pos=(0, 0), orientation='horizontal', center=None,
                  min_size_hint=None, max_size_hint=None):  # real signature unknown
 
+        super(Oblong, self).__init__()
+
         self.orientation = orientation
 
         self.size_hint = size_hint
@@ -82,6 +84,8 @@ class Oblong(VertexInstruction):
         center = self.get_center()
         self.set_center(center)
         self.update_rectangle_center()
+
+
 
     def get_rectangle_width(self):
         if self.orientation == 'horizontal':

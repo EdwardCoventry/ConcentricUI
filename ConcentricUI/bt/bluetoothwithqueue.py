@@ -19,18 +19,21 @@ class BluetoothQueue(object):
         for byte in byte_list:
             self.queue.put(byte)
 
-    def queue_integer(self, integer=0, prepend_byte_count=False):
+    def queue_integer(self, integer=0, prepend_byte_count=False, prepend_flag=None):
 
         byte_list = self.process_integer(integer, prepend_byte_count)
 
-        for byte in byte_list:
-            self.queue_byte(byte)
+        if prepend_flag is not None:
+            byte_list = [prepend_flag] + byte_list
 
-    def send_integer(self, integer=0, prepend_byte_count=False):
+        self.queue_byte(byte_list)
 
-        byte_list = self.process_integer(integer, prepend_byte_count)
-        for byte in byte_list:
-            self.send_byte(byte)
+    # def send_integer(self, integer=0, prepend_byte_count=False):
+    #
+    #     byte_list = self.process_integer(integer, prepend_byte_count)
+    #     for byte in byte_list:
+    #         self.send_byte(byte)
+
 
     @run_in_thread
     def run_bluetooth_queue(self):

@@ -34,7 +34,7 @@ class SendReceive(Widget):
     do_polling = None
     polling_thread = None
 
-    # ip = '192.168.0.7' if platform is 'android' else '192.168.0.22'
+    # ip = '192.168.0.7' if platform == 'android' else '192.168.0.22'
     # server_ip = StringProperty()
     port = 8002
 
@@ -53,8 +53,8 @@ class SendReceive(Widget):
 
     def do_on_pre_enter(self, *args):
         # self.ips_store = self.get_ips_store()
-        self.device_ip = '192.168.0.7' if platform is 'android' else '192.168.0.22'
-        self.other_ip = '192.168.0.22' if platform is 'android' else '192.168.0.7'
+        self.device_ip = '192.168.0.7' if platform == 'android' else '192.168.0.22'
+        self.other_ip = '192.168.0.22' if platform == 'android' else '192.168.0.7'
         # try:
         #     self.device_ip = self.ips_store.get('device_ip')
         #     self.other_ip = self.ips_store.get('other_ip')

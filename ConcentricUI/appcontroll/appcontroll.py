@@ -8,12 +8,14 @@ if platform == 'android':
 
 def close_app(*args):
     App.get_running_app().stop()
-    if platform is not 'android':
+    if platform == 'android':
+        pass
+    else:
         Window.close()
 
 
 def minimise_app(*args):
-    if platform is 'android':
+    if platform == 'android':
         PythonActivity = autoclass('org.kivy.android.PythonActivity')
         Intent = autoclass('android.content.Intent')
         intent = Intent(Intent.ACTION_MAIN)

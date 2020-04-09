@@ -62,6 +62,7 @@ def split_int_into_int_list(integer):
         braille_ints.append(braille_int)
     return braille_ints
 
+
 class ByteProcessing(object):
 
     @staticmethod

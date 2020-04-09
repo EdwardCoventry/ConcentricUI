@@ -210,10 +210,12 @@ class BluetoothCore(device_bluetooth_core):
     def connect(self, address=None):
         if address:
 
-            connection = self.open_streams(address)
+            try:
+                connection = self.open_streams(address)
+            except:
+                connection = False
 
             if connection:
-
                 global POLL_CONNECTION
                 POLL_CONNECTION = False
                 self.successful_connection(address)

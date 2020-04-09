@@ -105,7 +105,7 @@ class ConcentricPopup(ModalView, ColourWidget):
         self.bind(size=self.set_background_size,
                   background_colour=self.set_background_colour)
 
-        self.back_key = 27 if platform is 'android' else 269  # 269 = numpad subtract
+        self.back_key = 27 if platform == 'android' else 269  # 269 = numpad subtract
         Window.bind(on_keyboard=self._on_keyboard)
 
     def _on_keyboard(self, widget, key, scancode, codepoint, modifiers, *args):

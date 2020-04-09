@@ -9,7 +9,7 @@ class AdvancedScreenManager(ScreenManager):
 
     def __init__(self, **kwargs):
         super(AdvancedScreenManager, self).__init__(**kwargs)
-        self.back_key = 27 if platform is 'android' else 269  # 269 = numpad subtract
+        self.back_key = 27 if platform == 'android' else 269  # 269 = numpad subtract
         Window.bind(on_keyboard=self._on_keyboard)
 
     def _on_keyboard(self, widget, key, scancode, codepoint, modifiers, *args):

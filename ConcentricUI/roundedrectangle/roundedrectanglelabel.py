@@ -10,4 +10,3 @@ class RoundedRectangleLabel(ConcentricRoundedRectangles, ConcentricLabel):
 
     def __init__(self, **kwargs):
         super(RoundedRectangleLabel, self).__init__(**kwargs)
-\

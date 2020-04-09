@@ -43,9 +43,13 @@ class ExtendedOsc(OSCThreadServer):
                                'max_display_time': max_display_time})
 
     def __init__(self, root, port, main_port=None, **kwargs):
+
+        print('iiiinnnnnnnnnnnitttttttttttttttttttttt port={}, main_port={}'.format(port, main_port))
+
         self.root = root
         self.port = port
-        App.get_running_app().port = port
+        if App.get_running_app():
+            App.get_running_app().port = port
         self.main_port = main_port
         super(ExtendedOsc, self).__init__(encoding='utf8')
         self.sock = self.listen('localhost', self.port, default=True)

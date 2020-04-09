@@ -23,7 +23,7 @@ class ModeButtonBehavior(Widget):
         return index
 
     def __init__(self, **kwargs):
-        super(ModeButton, self).__init__(**kwargs)
+        super(ModeButtonBehavior, self).__init__(**kwargs)
         self.set_button()
 
     def set_button(self, state=None, *args):

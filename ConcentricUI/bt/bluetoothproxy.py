@@ -80,6 +80,7 @@ class BluetoothProxy(Widget):
     def queue_byte(self, byte_list):
         self.service.function('bluetooth.queue_byte', args=[byte_list])
 
-    def queue_integer(self, integer, prepend_byte_count=False):
+    def queue_integer(self, integer, prepend_byte_count=False, prepend_flag=None):
         self.service.function('bluetooth.queue_integer', args=[integer],
-                              kwargs={'prepend_byte_count': prepend_byte_count})
+                              kwargs={'prepend_byte_count': prepend_byte_count,
+                                      'prepend_flag': prepend_flag})

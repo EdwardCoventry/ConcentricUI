@@ -1001,11 +1001,11 @@ class Settings(BoxLayout):
         if self.interface:
             old_mode = self.interface.config_type
 
-            if old_mode is 'walking':
+            if old_mode == 'walking':
                 new_mode = 'bicycling'
-            elif old_mode is 'bicycling':
+            elif old_mode == 'bicycling':
                 new_mode = 'common'
-            elif old_mode is 'common':
+            elif old_mode == 'common':
                 new_mode = 'walking'
             else:
                 raise Exception("mode {} not recognised".format(old_mode))
@@ -1059,7 +1059,7 @@ class Settings(BoxLayout):
         #     self.interface = self.create_interface()
         # else:
 
-        if mode is 'bicycling':
+        if mode == 'bicycling':
             mode = 'bicycling'
         if mode in ('walking', 'transit'):
             mode = 'walking'
@@ -1381,7 +1381,7 @@ class InterfaceWithCirclebar(BoxLayout):
     def get_current(self):
         universal_menu_section_button_list = ToggleButton.get_widgets('menu_section')
         universal_down_list = [button for button in universal_menu_section_button_list if
-                               button.state is 'down' and button.config_type is self.config_type]
+                               button.state == 'down' and button.config_type == self.config_type]
         button = universal_down_list[0]
         return button.uid
 
