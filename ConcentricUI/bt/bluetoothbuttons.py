@@ -1,3 +1,4 @@
+from ConcentricUI.circle.circlebutton import CircleButton
 from ConcentricUI.oblong.oblongbutton import OblongButton
 from ConcentricUI.widgets.fullscreenpopup import FullScreenPopup
 from kivy.app import App
@@ -6,6 +7,43 @@ from kivy.properties import StringProperty, ObjectProperty, DictProperty
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.scrollview import ScrollView
 from kivy.utils import rgba
+
+
+
+class PollConnectionButton(CircleButton):
+    def __init__(self):
+        self.text = 'poll'
+        super().__init__()
+
+    def on_release(self):
+        App.get_running_app().bluetooth.connect_bluetooth(retry=True)
+
+class ConnectButton(CircleButton):
+    def __init__(self):
+        self.text = 'con'
+        super().__init__()
+
+    def on_release(self):
+        App.get_running_app().bluetooth.connect_bluetooth(retry=False)
+
+class DisconnectButton(CircleButton):
+    def __init__(self):
+        self.text = 'dis'
+        super().__init__()
+
+    def on_release(self):
+        App.get_running_app().bluetooth.stop_poll_connection()
+        App.get_running_app().bluetooth.disconnect()
+
+class ShowPairedDevicesButton(CircleButton):
+    def __init__(self):
+        self.text = 'pair'
+        super().__init__()
+
+    def on_release(self):
+        App.get_running_app().bluetooth.stop_poll_connection()
+        App.get_running_app().bluetooth.paired_devices_popup.get_devices_list()
+
 
 class PairedDevicesPopupOption(OblongButton):
     popup = ObjectProperty()
@@ -18,7 +56,7 @@ class PairedDevicesPopupOption(OblongButton):
 
     def set_paired_device(self, *args):
 
-        App.get_running_app().config.set('bluetooth', 'paired device', str((self.address, self.text)))
+        App.get_running_app().config.set('bt', 'paired device', str((self.address, self.text)))
 
         filename = App.get_running_app().config.filename
         App.get_running_app().config.update_config(filename)

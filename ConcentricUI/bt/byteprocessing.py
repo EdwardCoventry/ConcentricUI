@@ -13,7 +13,6 @@ def get_byte(n, padding=True):
         array = pad(array, 8, next_multiple=True)
     return array
 
-
 def pad(l, width, content=0, next_multiple=True):
     #  fixme it would be cool to do automatic types
 
@@ -45,7 +44,7 @@ def get_int_from_array(array):
     return array_as_a_byte
 
 
-def split_int_into_int_list(integer):
+def split_int_into_byte_list(integer):
     if integer < 256:
         #  just a little shortcut
         return [integer]
@@ -61,6 +60,24 @@ def split_int_into_int_list(integer):
         braille_int = get_int_from_array(chunk)
         braille_ints.append(braille_int)
     return braille_ints
+
+def concatenate_byte_list_into_int(byte_list):
+    if any([True for x in byte_list if x > 255]):
+        raise Exception("At least one of the ints"
+                        "(specifically {})"
+                        "was just too big!".format([x for x in byte_list if x > 255]))
+    binary_bytes = [format(x, "b") for x in byte_list]
+    padded_binary_bytes = reversed([''.join(pad(x, 8, '0')) for x in binary_bytes])
+    binary = "".join(padded_binary_bytes)
+
+    print('!!!!! BIN', binary)
+
+    concatenated_int = int(binary, 2)
+    return concatenated_int
+
+
+# 100101100
+#['00101100', '000000001', '0', '0']
 
 
 class ByteProcessing(object):
@@ -101,6 +118,6 @@ class ByteProcessing(object):
                       "Consider setting prepend_byte_count = True".format(integer))
             return [integer]
 
-        split_integer = split_int_into_int_list(integer)
+        split_integer = split_int_into_byte_list(integer)
 
         return [byte_count] + split_integer

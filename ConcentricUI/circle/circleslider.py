@@ -4,6 +4,7 @@ all__ = ('CircleSlider',)
 
 from functools import partial
 
+from kivy.app import App
 from kivy.clock import Clock
 from kivy.properties import BooleanProperty, ObjectProperty, NumericProperty, StringProperty, AliasProperty
 from kivy.uix.slider import Slider
@@ -11,6 +12,7 @@ from kivy.uix.slider import Slider
 from ConcentricUI.circle.circlelabel import CircleLabel
 from ConcentricUI.circle.concentriccircles import ConcentricCircles
 from ConcentricUI.oblong.concentricoblongs import ConcentricOblongs
+
 
 
 class CircleSlider(Slider, ConcentricCircles):
@@ -25,8 +27,6 @@ class CircleSlider(Slider, ConcentricCircles):
 
         #  fixme add sig figs please
 
-        print('@@@@@@yyyyyyyyyyyyyyyyyyy', self.decimal_places)
-
         if self.value is None:
             return ''
         elif self.integers:
@@ -37,7 +37,6 @@ class CircleSlider(Slider, ConcentricCircles):
             value = self.value
 
         if self.display_value_formatting:
-            print('>>>>>', self.display_value_formatting.format(value))
             return self.display_value_formatting.format(value)
 
     formatted_value = AliasProperty(get_formatted_value, bind=['value', 'decimal_places', 'sig_figs'])
@@ -69,6 +68,9 @@ class CircleSlider(Slider, ConcentricCircles):
         super(CircleSlider, self).__init__(**kwargs)
 
         print('b5555555555555555555555555', self.decimal_places)
+
+        if 'text_colour' in kwargs:
+            print('@@@@@@@@@@@@@@@@@@@@@@@@@@@4444444444444444', kwargs.pop('text_colour'))
 
 
         # self.value = kwargs.pop('value')
@@ -105,7 +107,7 @@ class CircleSlider(Slider, ConcentricCircles):
 
         self.font_size_hint = 0.5
         self.circle_label = CircleLabel(text=self.formatted_value, font_size_hint=self.font_size_hint,
-                                        text_colour=self.text_colour, bold=True, size=self.size, pos=self.pos,
+                                        color=kwargs.pop('text_colour', App.get_running_app().background_colour), bold=True, size=self.size, pos=self.pos,
                                         shape_dictionary=self.shape_dictionary, colour_scheme=self.colour_scheme,
                                         master_colour=self.master_colour)
 
@@ -204,6 +206,7 @@ class CircleSlider(Slider, ConcentricCircles):
 
     def on_value(self, wid, value):
 
+
         if self.integers:
             value = int(value)
 
@@ -211,7 +214,37 @@ class CircleSlider(Slider, ConcentricCircles):
             Clock.create_trigger(partial(self.set_slow_value, value), self.update_slowdown, False)
             return
         else:
-            self.value = value
+            #self.value = value
+            pass
+        #super(CircleSlider, self).on_value(wid, value)
 
     def set_slow_value(self, value):
-        self.value = value
+        if self.integers:
+            self.value = int(value)
+        else: self.value = value
+
+    # def get_norm_value(self):
+    #     vmin = self.min
+    #     d = self.max - vmin
+    #     if d == 0:
+    #         return 0
+    #     value = (self.value - vmin) / float(d)
+    #     if self.integers:
+    #         return int(value)
+    #     else:
+    #         return value
+    #
+    # def set_norm_value(self, value):
+    #     vmin = self.min
+    #     vmax = self.max
+    #     step = self.step
+    #     val = min(value * (vmax - vmin) + vmin, vmax)
+    #     if step == 0:
+    #         value = val
+    #     else:
+    #         value = min(round((val - vmin) / step) * step + vmin,
+    #                          vmax)
+    #     if self.integers:
+    #         return int(value)
+    #     else:
+    #         return value

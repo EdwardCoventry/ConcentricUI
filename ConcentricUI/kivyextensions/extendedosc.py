@@ -42,22 +42,23 @@ class ExtendedOsc(OSCThreadServer):
                                'min_display_time': min_display_time,
                                'max_display_time': max_display_time})
 
-    def __init__(self, root, port, main_port=None, **kwargs):
+    def __init__(self, root, self_port, other_port=None, **kwargs):
 
-        print('iiiinnnnnnnnnnnitttttttttttttttttttttt port={}, main_port={}'.format(port, main_port))
+        #print('iiiinnnnnnnnnnnitttttttttttttttttttttt port={}, main_port={}'.format(self_port, main_port))
 
         self.root = root
-        self.port = port
-        if App.get_running_app():
-            App.get_running_app().port = port
-        self.main_port = main_port
+        self.port = self_port
+        self.other_port = other_port
+        app = App.get_running_app()
+        if app:
+            app.port = self.port
         super(ExtendedOsc, self).__init__(encoding='utf8')
         self.sock = self.listen('localhost', self.port, default=True)
 
-        self.set = partial(self.outbound_variable_setter, self.main_port)
-        self.get = partial(self.outbound_variable_getter, self.main_port)
-        self.function = partial(self.outbound_function_caller, self.main_port)
-        self.return_function = partial(self.outbound_function_caller_with_return, self.main_port)
+        self.set = partial(self.outbound_variable_setter, self.other_port)
+        self.get = partial(self.outbound_variable_getter, self.other_port)
+        self.function = partial(self.outbound_function_caller, self.other_port)
+        self.return_function = partial(self.outbound_function_caller_with_return, self.other_port)
 
         print('initialised with port {}'.format(self.port))
 

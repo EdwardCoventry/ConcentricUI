@@ -1,13 +1,15 @@
 
 from kivy.app import App
 from kivy.clock import mainthread
-from kivy.properties import ListProperty
+from kivy.properties import ListProperty, BooleanProperty
 from kivy.uix.widget import Widget
 
-from ConcentricUI.bt.paireddevicespopup import PairedDevicesPopup
+from ConcentricUI.bt.bluetoothbuttons import PairedDevicesPopup
 
 
 class BluetoothProxy(Widget):
+
+    connected = BooleanProperty(False)
 
     paired_devices = ListProperty()
 
@@ -15,6 +17,8 @@ class BluetoothProxy(Widget):
         App.get_running_app().paired_devices = devices
 
     def __init__(self, service):
+
+
 
         self.paired_devices_popup = PairedDevicesPopup()
 
@@ -38,7 +42,7 @@ class BluetoothProxy(Widget):
     def get_paired_devices(self):
         self.service.return_function('bluetooth.get_paired_devices', 'bluetooth.paired_devices', args=[])
 
-    def connect_bluetooth(self, *args):
+    def connect_bluetooth(self, retry=True):
 
         paired_device = App.get_running_app().config['bt']['paired device']
 
@@ -46,13 +50,16 @@ class BluetoothProxy(Widget):
             address, name = eval(paired_device)
             App.get_running_app().bluetooth_button.text = name
 
-            self.poll_connection(address=address)
+            if retry:
+                self.poll_connection(address=address)
+            else:
+                self.connect(address=address)
         else:
             App.get_running_app().bluetooth_button.text = 'disconnected'
             App.get_running_app().bluetooth.connect(address=None)
 
     @mainthread
-    def set_bluetooth_button(self, device_name):
+    def set_bluetooth_button(self, device_name=None):
 
         paired_devices_button = App.get_running_app().bluetooth_button
         paired_devices_button.text = device_name
@@ -65,7 +72,7 @@ class BluetoothProxy(Widget):
 
     def send_last_paired_device(self):
 
-        device = App.get_running_app().config.get('bluetooth', 'paired device')
+        device = App.get_running_app().config.get('bt', 'paired device')
         if device in ('disconnect', 'disconnected'):
             self.disconnect()
             return None
@@ -77,8 +84,13 @@ class BluetoothProxy(Widget):
 
     #  sending
 
-    def queue_byte(self, byte_list):
-        self.service.function('bluetooth.queue_byte', args=[byte_list])
+    def queue_flag(self, flag):
+        self.service.function('bluetooth.queue_flag', args=[flag])
+
+
+    def queue_byte(self, byte_list, prepend_flag=None):
+        #self.service.function('bluetooth.queue_byte', args=[byte_list, prepend_flag])
+        self.service.function('bluetooth.queue_byte', args=[byte_list], kwargs={'prepend_flag': prepend_flag})
 
     def queue_integer(self, integer, prepend_byte_count=False, prepend_flag=None):
         self.service.function('bluetooth.queue_integer', args=[integer],

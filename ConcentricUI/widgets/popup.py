@@ -6,7 +6,7 @@ from kivy.app import App
 from kivy import platform
 from kivy.core.window import Window
 from kivy.graphics import Color, Rectangle
-from kivy.properties import ObjectProperty
+from kivy.properties import ObjectProperty, StringProperty
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.modalview import ModalView
 
@@ -58,6 +58,8 @@ class ConcentricPopup(ModalView, ColourWidget):
     top_bar = ObjectProperty()
 
     background_rectangle = ObjectProperty()
+
+    title = StringProperty()
 
     def __init__(self, **kwargs):
         # self.colour_scheme = 'app'

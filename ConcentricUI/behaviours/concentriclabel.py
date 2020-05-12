@@ -22,7 +22,9 @@ class ConcentricLabel(Label, ConcentricFontScaling):
     def __init__(self, **kwargs):
         super(ConcentricLabel, self).__init__(**kwargs)
 
-        self.color = self.text_colour
+        # if 'text_colour' in kwargs:
+        #     self.color = kwargs.pop('text_colour')
+
         self.bind(text_colour=self.set_colour)
 
     def set_colour(self, wid, colour):
