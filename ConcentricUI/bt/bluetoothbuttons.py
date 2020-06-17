@@ -57,9 +57,8 @@ class PairedDevicesPopupOption(OblongButton):
     def set_paired_device(self, *args):
 
         App.get_running_app().config.set('bt', 'paired device', str((self.address, self.text)))
+        App.get_running_app().save_config()
 
-        filename = App.get_running_app().config.filename
-        App.get_running_app().config.update_config(filename)
 
         App.get_running_app().bluetooth.poll_connection(self.address)
 

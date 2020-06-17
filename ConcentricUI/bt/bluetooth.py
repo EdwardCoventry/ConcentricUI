@@ -79,6 +79,7 @@ class Bluetooth(BluetoothCore, ByteProcessing, BluetoothQueue):
         CHECK_CONNECTION = False
 
     def ask_connection(self):
+        pass
         self.queue_byte(flags.BLUETOOTH.ASK)
         self.run_time_out(self.connection_update_time)
 
@@ -98,9 +99,9 @@ class Bluetooth(BluetoothCore, ByteProcessing, BluetoothQueue):
         for bytes in self.readied_bytes.values():
             total_bytes.extend(bytes)
 
-        print('this is just a test. but bytes to be sent are', bytes)
+        print('this is just a test. but bytes to be sent are', total_bytes)
 
-        self.queue_byte(bytes, prepend_flag=None)
+        self.queue_byte(total_bytes, prepend_flag=None)
 
     def update_readied_bytes(self, key, bytes):
         print('updating', key, 'to', bytes)

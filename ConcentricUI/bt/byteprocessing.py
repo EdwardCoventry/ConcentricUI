@@ -83,7 +83,14 @@ def concatenate_byte_list_into_int(byte_list):
 class ByteProcessing(object):
 
     @staticmethod
-    def process_integer(integer=0, prepend_byte_count=False):
+    def process_integers(integers):
+        return_bytes = []
+        for integer in integers:
+            return_bytes.extend(ByteProcessing.process_integer(integer, prepend_byte_count=True))
+        return return_bytes
+
+    @staticmethod
+    def process_integer(integer=0, prepend_byte_count=True):
 
         """
 

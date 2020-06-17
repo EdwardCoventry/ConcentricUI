@@ -16,7 +16,7 @@ class BluetoothQueue(object):
     def queue_byte(self, byte_list, prepend_flag=None):
 
         if not (byte_list or prepend_flag):
-            print('not queuing anything..... {} {]'.format(byte_list, prepend_flag))
+            print('not queuing anything..... {} {}'.format(byte_list, prepend_flag))
             return
 
         if not byte_list or byte_list == [None]:
@@ -31,11 +31,17 @@ class BluetoothQueue(object):
             for byte in byte_list:
                 self.queue.put(byte)
 
-    def queue_integer(self, integer=0, prepend_byte_count=False, prepend_flag=None):
+    def queue_integer(self, integer=0, prepend_flag=None):
 
-        byte_list = self.process_integer(integer, prepend_byte_count)
+        bytes_list = self.process_integer(integer, prepend_byte_count=True)
 
-        self.queue_byte(byte_list, prepend_flag=prepend_flag)
+        self.queue_byte(bytes_list, prepend_flag=prepend_flag)
+
+    def queue_integers(self, integers, prepend_flag=None):
+
+        bytes_list = self.process_integers(integers, prepend_byte_count=True)
+
+        self.queue_byte(bytes_list, prepend_flag=prepend_flag)
 
     # def send_integer(self, integer=0, prepend_byte_count=False):
     #

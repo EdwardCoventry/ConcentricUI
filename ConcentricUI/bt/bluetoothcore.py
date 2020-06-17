@@ -238,6 +238,8 @@ class BluetoothCore(device_bluetooth_core):
         return super(BluetoothCore, self).open_streams(address)
 
     def send_byte(self, data):
+        # if not data == 15:
+        #     print('********>', data)
         super(BluetoothCore, self).send_byte(data)
 
     def read_byte(self):

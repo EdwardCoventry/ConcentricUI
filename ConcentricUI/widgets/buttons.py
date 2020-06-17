@@ -56,10 +56,14 @@ class ModeButton(CircleButton):
 class OpenScreenButton(CircleButton):
 
     screen = None
+    button_text = None
 
     def __init__(self, **kwargs):
+        if self.button_text:
+            self.text = self.button_text
         super(OpenScreenButton, self).__init__(**kwargs)
         self.font_size_hint = 0.7
+
 
     def on_release(self, *args):
         App.get_running_app().root.current = self.screen

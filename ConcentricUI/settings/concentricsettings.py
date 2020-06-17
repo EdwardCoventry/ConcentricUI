@@ -567,6 +567,7 @@ class Settings(BoxLayout):
         '''
 
         panel = self.create_json_panel(title, config, filename, data)
+
         uid = panel.uid
         if self.interface is not None:
             self.interface.add_panel(panel, title, uid)

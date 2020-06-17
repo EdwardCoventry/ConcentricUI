@@ -90,19 +90,26 @@ kv = """
         padding: 0, self.height*0.1
         #size: root.size
         size_hint: 1, 1
-        Label:
-            halign: 'center'
-            valign: 'bottom'
-            size_hint_y: .5
-            id: labellayout
-            markup: True
-            text: u'[color={2}]{0}[/color]\\n[size=13sp][color={3}]{1}[/color][/size]'.format(root.title or '', '', app.colour_references['background_colour'], app.colour_references['text_colour'])
-            font_size: '15sp'
-            text_size: self.width - 32, None
+        BoxLayout:
+            Label:
+                halign: 'left'
+                valign: 'bottom'
+                size_hint_y: .5
+                id: labellayout
+                markup: True
+                text: u'[color={2}]{0}[/color]\\n[size=13sp][color={3}]{1}[/color][/size]'.format(root.title or '', '', app.colour_references['background_colour'], app.colour_references['text_colour'])
+                font_size: '15sp'
+                text_size: self.width - 32, None
+            Label:
+                halign: 'right'
+                text: "{} {}".format(root.slider_value, root.unit)
+                font_size: '15sp'
+                text_size: self.width - 32, None
+                color: rgba(app.colour_references['background_colour'])
 
         BoxLayout:
             id: content
-            size_hint_y: .5
+            size_hint_y: .75
             
 <ConcentricSettingTitle>:
     text_size: self.width - 32, None
@@ -370,15 +377,19 @@ class ConcentricSettingButtons(ConcentricSettingItem):
 
 class ConcentricSettingsSlider(ConcentricSettingItemBase):
 
+    slider_value = NumericProperty()
+
+    def update_copy_of_slider_value(self, wid, value):
+        self.slider_value = int(value)
 
     def __init__(self, **kwargs):
-
 
         self.register_event_type('on_release')
         # For Python3 compatibility we need to drop the buttons keyword when calling super.
         kw = kwargs.copy()
         slider_kwargs = kw.pop('slider', None)
 
+        self.unit = kw.pop('unit', None)
 
         super(ConcentricSettingsSlider, self).__init__(**kw)
 
@@ -393,7 +404,8 @@ class ConcentricSettingsSlider(ConcentricSettingItemBase):
         self.add_widget(self.slider)
         self.bind(value=self.set_slider_value)
 
-        self.slider.bind(selected=self.value_update)
+        self.slider.bind(selected=self.value_update, value=self.update_copy_of_slider_value)
+        self.update_copy_of_slider_value(None, self.slider.value)
 
         # for aButton in kwargs["buttons"]:
         #     oButton=Button(text=aButton['title'], font_size= '15sp')
@@ -418,9 +430,7 @@ class ConcentricSettingsSlider(ConcentricSettingItemBase):
         self.panel.settings.dispatch('on_config_change', self.panel.config, self.section, self.key, int(wid.value))
 
         App.get_running_app().config.set(self.section, self.key, int(wid.value))
-
-        filename = App.get_running_app().config.filename
-        App.get_running_app().config.update_config(filename)
+        App.get_running_app().save_config()
 
 
 
@@ -586,7 +596,13 @@ class ConcentricSettingBoolean(ConcentricSettingItem):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        if int(self.value):
+        if type(self.value) == bool:
+            self.loaded_state = self.value
+        elif self.value == 'True':
+            self.loaded_state = True
+        elif self.value == 'False':
+            self.loaded_state = False
+        elif int(self.value):
             self.loaded_state = True
 
 
